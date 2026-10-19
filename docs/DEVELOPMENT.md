@@ -5,9 +5,9 @@ A reusable static mini-site in **Ukrainian and English**, adapted from [AI Tools
 ## What is included
 
 - Four approaches to AI and seven detailed tools: ChatGPT, Gemini, Claude, NotebookLM, Claude Code, Codex, and **GitHub Copilot**. Search, category filters, comparison, and task-based recommendations.
-- Five practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks. An optional HTML agent simulation checks a real in-memory change without calling an agent.
+- Six practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks. An optional HTML agent simulation checks a real in-memory change without calling an agent.
 - Four interactive trainers: real `cl100k_base` tokenisation, an illustrative context budget, keyword versus manually positioned vector retrieval, and RAG using fictional documents and predefined answers.
-- Two image examples: **Mercedes / Monaco** with two reference slots and one result; **Oxford** with one reference slot and one result. Each has the complete user-supplied English text and JSON prompts, collapsed by default, copy controls, token/character comparisons, and practical tips.
+- Two image examples: **Mercedes / Monaco** with two reference slots and one result; **Oxford** with one reference slot and one result. Start by downloading references and recreating the target with your own prompt. The supplied prompts, token comparisons, analysis, and tips are collapsed until opened.
 - Shared templates, fully localised learning content and runtime messages, language switching on the same page, mobile layouts, and meaningful content available without JavaScript.
 - Configurable editions that can be built under different paths or deployed independently.
 
@@ -87,7 +87,7 @@ Merge this entry alongside `universal` and `starter`; do not replace the entire 
 
 - `sections`: select and order `taxonomy`, `practice`, `simulators`, `image-prompts`. A home page is always added.
 - `tools`: `"all"` or an ordered list of tool IDs. The seven IDs are in `content/uk/taxonomy.json` and matched in the English file.
-- `exercises`: `"all"` or IDs `plan`, `context`, `sources`, `arguments`, `compare`.
+- `exercises`: `"all"` or IDs `plan`, `context`, `sources`, `arguments`, `compare`, `copilot`.
 - `imageExamples`: an ordered selection of `mercedes`, `oxford`.
 - Use `[]` for content belonging to a disabled section. An enabled section must have content.
 

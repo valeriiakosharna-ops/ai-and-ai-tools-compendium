@@ -23,7 +23,11 @@ const walk = async (dir) =>
       ),
     )
   ).flat();
-const htmlFiles = (await walk(output)).filter((file) => file.endsWith(".html"));
+const htmlFiles = (await walk(output)).filter(
+  (file) =>
+    file.endsWith(".html") &&
+    !path.relative(output, file).startsWith(`assets${path.sep}`),
+);
 const pages = new Map(
   await Promise.all(
     htmlFiles.map(async (file) => [
@@ -125,14 +129,14 @@ test("catalogue preserves four approaches and adds Copilot throughout the comple
   }
 });
 
-test("all five exercises, source materials, reflection prompts and agent demo are preserved", async () => {
+test("all six exercises, source materials, reflection prompts and agent demo are preserved", async () => {
   for (const lang of ["uk", "en"]) {
     const data = JSON.parse(
       await readFile(`content/${lang}/practice.json`, "utf8"),
     );
     const html = pages.get(`${lang}/practice/index.html`);
-    assert.equal(data.exercises.length, 5);
-    assert.equal((html.match(/data-complete-exercise=/g) || []).length, 5);
+    assert.equal(data.exercises.length, 6);
+    assert.equal((html.match(/data-complete-exercise=/g) || []).length, 6);
     for (const exercise of data.exercises) {
       for (const text of [
         exercise.title,
@@ -158,6 +162,18 @@ test("all five exercises, source materials, reflection prompts and agent demo ar
     );
     assert.match(brief, /3000|3,000/);
     assert.match(update, /2400|2,400/);
+    const starter = await readFile(
+      `${output}/assets/materials/${folder}copilot-starter.html`,
+      "utf8",
+    );
+    assert.ok(starter.includes('id="reserve"'));
+    assert.ok(
+      starter.includes('id="availability" role="status" aria-live="polite"'),
+    );
+    assert.doesNotMatch(starter, /<script\b|onclick=/);
+    assert.ok(html.includes('id="copilot"'));
+    assert.ok(html.includes('id="copilot-explain"'));
+    assert.ok(html.includes('id="copilot-edit"'));
   }
 });
 
@@ -171,7 +187,7 @@ test("four full image prompts start collapsed and retain the exact uploaded stri
     );
     const html = pages.get(`${lang}/image-prompts/index.html`);
     const details = [...html.matchAll(/<details\b([^>]*)>/g)];
-    assert.equal(details.length, 4);
+    assert.equal(details.length, 7);
     details.forEach(([, attrs]) => assert.doesNotMatch(attrs, /\bopen\b/));
     const missing = view.examples
       .flatMap((example) => [...example.references, example.result])

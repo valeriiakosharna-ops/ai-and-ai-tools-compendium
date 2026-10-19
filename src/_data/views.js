@@ -37,10 +37,8 @@ export default function () {
           ? ""
           : `editions/${slug}/`;
       const root = `${base}${standalone && language ? "" : `${lang}/`}`;
-      const tools = selectItems(
-        json(`content/${lang}/taxonomy.json`).tools,
-        edition.tools,
-      );
+      const allTools = json(`content/${lang}/taxonomy.json`).tools;
+      const tools = selectItems(allTools, edition.tools);
       const taxonomy = {
         tools,
         categories: json(`content/${lang}/taxonomy.json`).categories.map(
@@ -59,7 +57,15 @@ export default function () {
       const exercises = selectItems(
         json(`content/${lang}/practice.json`).exercises,
         edition.exercises,
-      );
+      ).map((exercise) => ({
+        ...exercise,
+        tools: exercise.tools.map((tool) => ({
+          ...tool,
+          logo:
+            allTools.find((item) => item.name === tool.name)?.logo ||
+            (tool.name === "VS Code" ? "/assets/tools/vscode.png" : null),
+        })),
+      }));
       const examples = edition.imageExamples.map((id) => {
         const text = read(`content/prompts/${id}/text.txt`);
         const structured = read(`content/prompts/${id}/structured.json`);

@@ -46,7 +46,6 @@
       "id": "chatgpt",
       "name": "ChatGPT",
       "maker": "OPENAI",
-      "mark": "GPT",
       "category": "dialogue",
       "type": "Універсальний ШІ-асистент",
       "summary": "Звертайтеся по допомогу з текстом, ідеями, навчанням і аналізом своїх даних.",
@@ -73,13 +72,13 @@
           "label": "Довідковий центр OpenAI",
           "url": "https://help.openai.com/"
         }
-      ]
+      ],
+      "logo": "/assets/tools/chatgpt.svg"
     },
     {
       "id": "gemini",
       "name": "Gemini",
       "maker": "GOOGLE",
-      "mark": "✦",
       "category": "dialogue",
       "type": "Універсальний ШІ-асистент",
       "summary": "Поєднуйте розмову, дослідження та роботу зі своїми доступними сервісами Google.",
@@ -106,13 +105,13 @@
           "label": "Вебверсія Gemini",
           "url": "https://gemini.google.com/"
         }
-      ]
+      ],
+      "logo": "/assets/tools/gemini.svg"
     },
     {
       "id": "claude",
       "name": "Claude",
       "maker": "ANTHROPIC",
-      "mark": "✳︎",
       "category": "dialogue",
       "type": "Універсальний ШІ-асистент",
       "summary": "Редагуйте свої тексти, аналізуйте документи та перевіряйте складні аргументи.",
@@ -143,13 +142,13 @@
           "label": "Вебверсія Claude",
           "url": "https://claude.ai/"
         }
-      ]
+      ],
+      "logo": "/assets/tools/claude.svg"
     },
     {
       "id": "notebooklm",
       "name": "NotebookLM",
       "maker": "GOOGLE",
-      "mark": "N",
       "category": "research",
       "type": "Дослідження та робота з джерелами",
       "summary": "Додавайте свої документи й отримуйте відповіді, порівняння та навчальні матеріали на їхній основі.",
@@ -175,13 +174,13 @@
           "label": "Довідковий центр NotebookLM",
           "url": "https://support.google.com/notebooklm/"
         }
-      ]
+      ],
+      "logo": "/assets/tools/notebooklm.svg"
     },
     {
       "id": "claude-code",
       "name": "Claude Code",
       "maker": "ANTHROPIC",
-      "mark": ">_",
       "category": "coding",
       "type": "Агент для програмної розробки",
       "summary": "Доручайте дослідження коду, зміну файлів і запуск перевірок у своєму проєкті.",
@@ -207,13 +206,13 @@
           "label": "Інструкція з початку роботи",
           "url": "https://code.claude.com/docs/en/quickstart"
         }
-      ]
+      ],
+      "logo": "/assets/tools/claude-code.svg"
     },
     {
       "id": "codex",
       "name": "Codex",
       "maker": "OPENAI",
-      "mark": "</>",
       "category": "coding",
       "type": "Агент для програмної розробки",
       "summary": "Опишіть свою задачу й отримайте реалізовану зміну, перевірки та пояснення результату.",
@@ -244,13 +243,13 @@
           "label": "Codex в OpenAI",
           "url": "https://openai.com/codex/"
         }
-      ]
+      ],
+      "logo": "/assets/tools/codex.svg"
     },
     {
       "id": "github-copilot",
       "name": "GitHub Copilot",
       "maker": "GITHUB",
-      "mark": "⌘",
       "category": "coding",
       "type": "ШІ-помічник для програмування",
       "summary": "Отримуйте підказки в редакторі, обговорюйте код і доручайте зміни агенту.",
@@ -276,7 +275,8 @@
           "label": "Можливості та тарифи",
           "url": "https://github.com/features/copilot"
         }
-      ]
+      ],
+      "logo": "/assets/tools/github-copilot.svg"
     }
   ]
 }
