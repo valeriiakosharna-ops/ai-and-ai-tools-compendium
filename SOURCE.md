@@ -7,6 +7,6 @@ The core learning material was adapted from the repository supplied by the proje
 
 Preserved: four approaches to AI, the six original tool profiles and official links, the five practical exercises and training documents, and the token/context/vector/RAG teaching models. Added: GitHub Copilot, a complete English localisation, a shared edition system, and two new image examples.
 
-The former Karazin image gallery, its image assets, and organisation-specific branding were replaced with a neutral field-guide identity and the new reference/result slots requested for Mercedes/Monaco and Oxford.
+The former Karazin image gallery, its image assets, and organisation-specific branding were replaced with the owner-provided branding and reference/result images for Mercedes/Monaco and Oxford.
 
 The four English image prompts were supplied by the user. They are stored in `content/prompts/` with chat timestamps removed and line endings normalised to LF. Their wording, JSON values, and formatting were otherwise preserved. No real generation or model-quality experiment was performed. Token metrics use the pinned `gpt-tokenizer` package and its `cl100k_base` encoding. The tokenizer license is copied into the built site.

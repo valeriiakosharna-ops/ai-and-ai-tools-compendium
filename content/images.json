@@ -1,0 +1,34 @@
+{
+  "mercedes": {
+    "references": [
+      {
+        "src": "assets/kimi.png",
+        "role": "driver",
+        "width": 1080,
+        "height": 1080
+      },
+      {
+        "src": "assets/kimi-car.png",
+        "role": "car",
+        "width": 2048,
+        "height": 1152
+      }
+    ],
+    "result": { "src": "assets/petronas.png", "width": 1672, "height": 941 }
+  },
+  "oxford": {
+    "references": [
+      {
+        "src": "assets/oxford.png",
+        "role": "hall",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "result": {
+      "src": "assets/scientists-in-oxford.png",
+      "width": 1672,
+      "height": 941
+    }
+  }
+}

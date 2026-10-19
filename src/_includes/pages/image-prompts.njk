@@ -1,6 +1,6 @@
 {% macro imageSlot(image, label) %}
 <figure class="image-slot{% if not image.exists %} awaiting-image{% endif %}">
-  {% if image.exists %}<img src="{{ image.path | url }}" alt="{{ label }}" loading="lazy" width="1600" height="900">{% else %}<div class="image-placeholder"><span aria-hidden="true">▧</span><strong>{{ t.pending }}</strong><p>{{ t.pendingNote }}</p></div>{% endif %}
+  {% if image.exists %}<img src="{{ image.path | url }}" alt="{{ label }}" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">{% else %}<div class="image-placeholder"><span aria-hidden="true">▧</span><strong>{{ t.pending }}</strong><p>{{ t.pendingNote }}</p></div>{% endif %}
   <figcaption>{{ label }}</figcaption>
 </figure>
 {% endmacro %}
