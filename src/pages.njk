@@ -1,0 +1,10 @@
+---
+pagination:
+  data: views
+  size: 1
+  alias: view
+permalink: "{{ view.output }}"
+eleventyExcludeFromCollections: true
+---
+{% set t = view.t %}
+{% include "base.njk" %}

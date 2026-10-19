@@ -1,0 +1,267 @@
+{
+  "categories": [
+    {
+      "id": "dialogue",
+      "number": "01",
+      "icon": "chat",
+      "title": "Conversation & creation",
+      "tools": "ChatGPT · Gemini · Claude",
+      "description": "Develop ideas, explore difficult topics, write, and analyse information together with AI.",
+      "analogy": "Think of a conversation partner, editor, and consultant in one interface.",
+      "example": "“Help me plan a charity event and write an invitation to potential partners.”"
+    },
+    {
+      "id": "research",
+      "number": "02",
+      "icon": "book",
+      "title": "Research & knowledge synthesis",
+      "tools": "NotebookLM",
+      "description": "Find connections between your documents, notes, and reports, then draw conclusions from them.",
+      "analogy": "Think of an assistant who has read your folder of documents and helps you find what matters.",
+      "example": "“Compare these three reports: summarise their themes, shared conclusions, and differences. Cite the relevant passages and flag missing evidence.”"
+    },
+    {
+      "id": "coding",
+      "number": "03",
+      "icon": "code",
+      "title": "Work inside a project",
+      "tools": "Claude Code · Codex · GitHub Copilot",
+      "description": "Ask AI to explore project files, change code, run commands, and check the result.",
+      "analogy": "Think of a development partner: give it a specific task and review the work.",
+      "example": "“Add a new page to this learning website and check that the navigation works.”"
+    },
+    {
+      "id": "integrations",
+      "number": "04",
+      "icon": "connect",
+      "title": "Connect external tools",
+      "tools": "Capabilities across AI environments",
+      "description": "Use search, files, email, calendars, or other services through AI when the relevant integrations and permissions are available.",
+      "analogy": "Think of an assistant you can authorise to perform specific actions on your behalf.",
+      "example": "“Find the email with the event programme and help me add a meeting to my calendar,” if supported."
+    }
+  ],
+  "tools": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "maker": "OPENAI",
+      "mark": "GPT",
+      "category": "dialogue",
+      "type": "General-purpose AI assistant",
+      "summary": "Get help with writing, ideas, learning, and analysing your data.",
+      "analogy": "A versatile assistant for intellectual tasks, from an early idea to data analysis.",
+      "description": "Describe a problem in everyday language, read the response, clarify your requirements, and refine the result together.",
+      "example": "For a charity event, ask for a plan, analyse your expense spreadsheet, draft a partner email, or develop a visual concept.",
+      "capabilities": [
+        "Generate, edit, and summarise text",
+        "Learn through explanations",
+        "Analyse files and data",
+        "Search for information and research topics",
+        "Create and edit images",
+        "Use additional tools available in your mode"
+      ],
+      "limitation": "Check facts even when the answer sounds convincing. Features and limits depend on your plan and available mode.",
+      "object": "Prompt, context, files, and data",
+      "result": "Answers, writing, analysis, and materials",
+      "links": [
+        {
+          "label": "ChatGPT capabilities overview",
+          "url": "https://help.openai.com/en/articles/9260256-chatgpt-capabilities-overview"
+        },
+        { "label": "OpenAI Help Center", "url": "https://help.openai.com/" }
+      ]
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "maker": "GOOGLE",
+      "mark": "✦",
+      "category": "dialogue",
+      "type": "General-purpose AI assistant",
+      "summary": "Combine conversation, research, and supported Google services.",
+      "analogy": "A digital assistant for conversation, research, and work within the Google ecosystem.",
+      "description": "Use Google's assistant, based on the Gemini model family, for learning, brainstorming, research, analysing materials, and creating content.",
+      "example": "Ask for an explanation of a difficult topic, current sources for research, or a presentation outline. Use supported Google services when the necessary integrations are enabled.",
+      "capabilities": [
+        "Ask questions and get explanations",
+        "Search for information and explore topics",
+        "Work with text, images, and files",
+        "Create learning materials",
+        "Connect supported Google services",
+        "Try voice interaction and features available in your version"
+      ],
+      "limitation": "An integration does not automatically grant access to every file, email, or calendar. Check account settings, permissions, and supported features.",
+      "object": "Prompt, information, and available integrations",
+      "result": "Answers, research, and content",
+      "links": [
+        {
+          "label": "Gemini Help",
+          "url": "https://support.google.com/gemini/?hl=en"
+        },
+        { "label": "Gemini web app", "url": "https://gemini.google.com/" }
+      ]
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "maker": "ANTHROPIC",
+      "mark": "✳︎",
+      "category": "dialogue",
+      "type": "General-purpose AI assistant",
+      "summary": "Edit writing, analyse documents, and examine complex arguments.",
+      "analogy": "An attentive editor and analyst: ask it to examine reasoning as well as shorten a document.",
+      "description": "Work with language, analysis, reasoning, and code using Anthropic's Claude assistant.",
+      "example": "Upload a long report and ask it to find contradictions, separate facts from assumptions, or compare authors' positions. Verify the conclusions against the passages.",
+      "capabilities": [
+        "Create and edit writing",
+        "Summarise documents",
+        "Examine arguments",
+        "Explore complex topics",
+        "Work with files and images",
+        "Solve programming tasks using available features"
+      ],
+      "limitation": "Good analysis does not guarantee factual accuracy. Check sources and search availability when you need current information.",
+      "object": "Text, context, and arguments",
+      "result": "Analysis, explanations, and edited materials",
+      "links": [
+        {
+          "label": "Claude Help Center",
+          "url": "https://support.anthropic.com/"
+        },
+        {
+          "label": "Claude documentation",
+          "url": "https://platform.claude.com/docs/en/overview"
+        },
+        { "label": "Claude web app", "url": "https://claude.ai/" }
+      ]
+    },
+    {
+      "id": "notebooklm",
+      "name": "NotebookLM",
+      "maker": "GOOGLE",
+      "mark": "N",
+      "category": "research",
+      "type": "Research with your sources",
+      "summary": "Add documents to get answers, comparisons, and learning materials grounded in them.",
+      "analogy": "A research assistant for a specific folder of sources, rather than a general conversation.",
+      "description": "Add sources to Google's NotebookLM, ask questions, analyse the content, and create study materials. Distinguish this source-focused product from the general Gemini chat.",
+      "example": "Add notes, research papers, and a presentation. Compare definitions, prepare self-test questions, or generate an Audio Overview.",
+      "capabilities": [
+        "Ask questions grounded in your sources",
+        "Summarise and compare documents",
+        "Check citations against source passages",
+        "Create notes and study materials",
+        "Generate Audio Overviews and other supported formats"
+      ],
+      "limitation": "Source completeness, currency, and consistency shape the answer. Open citations and check what they actually support.",
+      "object": "A collection of sources",
+      "result": "Information synthesis and study materials",
+      "links": [
+        { "label": "NotebookLM", "url": "https://notebooklm.google.com/" },
+        {
+          "label": "NotebookLM Help",
+          "url": "https://support.google.com/notebooklm/"
+        }
+      ]
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "maker": "ANTHROPIC",
+      "mark": ">_",
+      "category": "coding",
+      "type": "Software development agent",
+      "summary": "Delegate code exploration, file changes, and checks in your project.",
+      "analogy": "A development partner that can explain code, edit files, and check the work.",
+      "description": "Give Claude Code a sequence of tasks in a software project: explore code, edit files, run commands, and verify the result.",
+      "example": "Ask it to explore a learning website, add a page, or investigate an error. Review the changes and check results.",
+      "capabilities": [
+        "Explore project structure",
+        "Delegate code edits",
+        "Find and fix bugs",
+        "Run tests and other commands",
+        "Work with Git and configured tools"
+      ],
+      "limitation": "Control permissions, review changes, and verify results. Edits and commands can have unintended effects.",
+      "object": "Project files and development environment",
+      "result": "Code changes and command results",
+      "links": [
+        {
+          "label": "Claude Code documentation",
+          "url": "https://code.claude.com/docs/en/overview"
+        },
+        {
+          "label": "Quickstart",
+          "url": "https://code.claude.com/docs/en/quickstart"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "maker": "OPENAI",
+      "mark": "</>",
+      "category": "coding",
+      "type": "Software development agent",
+      "summary": "Describe a task and get an implemented change, checks, and an explanation.",
+      "analogy": "An assistant that carries out technical tasks in your project for you to review.",
+      "description": "Use OpenAI Codex to explore a codebase, implement changes, fix bugs, and run checks. Choose an available local, editor, or cloud environment.",
+      "example": "Ask for a feature, tests, and an explanation. Review the changed files and confirm your requirements were met.",
+      "capabilities": [
+        "Implement features from a description",
+        "Explore a software project",
+        "Fix bugs",
+        "Write and run tests",
+        "Analyse changes and prepare them for review",
+        "Delegate sequences of actions within the available environment"
+      ],
+      "limitation": "Review the result and grant access only to files, commands, and external systems needed for the task.",
+      "object": "Task and project context",
+      "result": "Implemented changes, checks, and explanations",
+      "links": [
+        {
+          "label": "Codex documentation and guides",
+          "url": "https://developers.openai.com/codex/"
+        },
+        {
+          "label": "Codex Help Center",
+          "url": "https://help.openai.com/en/collections/14937394-codex"
+        },
+        { "label": "Codex at OpenAI", "url": "https://openai.com/codex/" }
+      ]
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "maker": "GITHUB",
+      "mark": "⌘",
+      "category": "coding",
+      "type": "AI coding assistant",
+      "summary": "Get suggestions in your editor, discuss code, and delegate changes to an agent.",
+      "analogy": "A partner in your editor, from suggesting the next line to tackling a repository task.",
+      "description": "Use GitHub Copilot in supported editors and on GitHub. Complete code, ask questions in chat, and use agent capabilities available in your plan and environment.",
+      "example": "Ask it to explain an unfamiliar function, propose tests, and implement a small change. Review the diff and run checks.",
+      "capabilities": [
+        "Complete code as you type",
+        "Discuss code and errors in chat",
+        "Create tests and documentation",
+        "Delegate changes in supported agent environments",
+        "Review code suggestions"
+      ],
+      "limitation": "Feature availability depends on your plan, editor, and organisation policies. Verify code, dependencies, and test results; a suggestion does not guarantee correctness.",
+      "object": "Code, open files, and repository context",
+      "result": "Suggestions, explanations, tests, and code changes",
+      "links": [
+        {
+          "label": "GitHub Copilot documentation",
+          "url": "https://docs.github.com/en/copilot"
+        },
+        {
+          "label": "Features and plans",
+          "url": "https://github.com/features/copilot"
+        }
+      ]
+    }
+  ]
+}

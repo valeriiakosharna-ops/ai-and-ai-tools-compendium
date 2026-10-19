@@ -1,0 +1,10 @@
+TRAINING SOURCE 2. EVENT UPDATE
+This is a fictional document for the NotebookLM exercise only.
+
+Apply these updates after the initial brief in source 1.
+
+Reduce the available budget from UAH 3,000 to UAH 2,400. Keep the number of participants (20), preparation time (7 days), duration (up to two hours), and helpers (two) unchanged.
+
+Make participation free. Do not buy special equipment. Close registration the day before the meeting.
+
+The venue is still unconfirmed. Check its availability before inviting participants. The address, contacts, date, and final prices remain unknown; these training sources do not provide them.

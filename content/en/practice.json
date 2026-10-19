@@ -1,0 +1,207 @@
+{
+  "exercises": [
+    {
+      "id": "plan",
+      "number": "01",
+      "tool": "ChatGPT",
+      "icon": "chat",
+      "minutes": "5–7 min",
+      "skill": "Structure a task",
+      "title": "Turn a messy task into a plan",
+      "intro": "See how AI helps identify what matters and turn an unclear task into concrete actions.",
+      "tools": [{ "name": "ChatGPT", "url": "https://chatgpt.com/" }],
+      "steps": [
+        "Open ChatGPT and start a new chat.",
+        "Copy the prompt below. Use the sample situation or replace it with your own constraints.",
+        "Check whether the plan fits your time, budget, and available help.",
+        "In the same chat, ask to simplify the plan or cut it in half. Compare both versions."
+      ],
+      "prompts": [
+        {
+          "id": "plan-main",
+          "label": "Your first prompt",
+          "text": "I am organising a small volunteer event for 20 people. I have one week, a budget of UAH 3,000, and two helpers. We need to find a venue, invite participants, prepare materials, and organise registration.\n\nCreate a realistic 7-day preparation plan. Divide tasks among three people, estimate expenses, and identify the three main risks. Label any assumptions if information is missing."
+        },
+        {
+          "id": "plan-refine",
+          "label": "Refine in the same chat",
+          "text": "Simplify this plan: use half as many items while keeping the key deadlines, owners, and risks. Explain what can wait."
+        }
+      ],
+      "result": "A plan with deadlines, task owners, estimated expenses, and risks. Save both versions to compare.",
+      "checks": [
+        "Check the 7-day and UAH 3,000 limits and whether two helpers are enough.",
+        "Identify assumptions. Generated prices, contacts, and venue availability are not verified facts.",
+        "Check that the shorter plan still explains what to do and when."
+      ],
+      "reflection": [
+        "What became easier to plan after the AI response?",
+        "What information must you verify yourself?"
+      ]
+    },
+    {
+      "id": "context",
+      "number": "02",
+      "tool": "Gemini",
+      "icon": "connect",
+      "minutes": "5 min",
+      "skill": "Add context",
+      "title": "Refine your prompt step by step",
+      "intro": "See how clarifications change a response. Your first prompt does not have to be perfect.",
+      "tools": [{ "name": "Gemini", "url": "https://gemini.google.com/" }],
+      "steps": [
+        "Open Gemini and start a new chat.",
+        "Send the first short prompt and save the response.",
+        "In the same chat, send the second prompt with constraints.",
+        "Add the third prompt. Compare with the first response and check that all constraints remain satisfied."
+      ],
+      "prompts": [
+        {
+          "id": "context-start",
+          "label": "Step 1 / Start small",
+          "text": "Help me think of a volunteer event for my community."
+        },
+        {
+          "id": "context-constraints",
+          "label": "Step 2 / Add constraints in the same chat",
+          "text": "Clarification: the event must be free, last no more than two hours, work for 15–20 people, and require no special equipment. Suggest the three best ideas and explain which one you recommend."
+        },
+        {
+          "id": "context-plan",
+          "label": "Step 3 / Ask for a concrete plan",
+          "text": "Choose the best idea and create an implementation plan that respects all previous constraints. List what I need to verify before organising the event."
+        }
+      ],
+      "result": "An idea adapted to your situation and a plan to carry it out. Compare its specificity with the first answer.",
+      "checks": [
+        "Check all four constraints: free, under two hours, 15–20 people, no special equipment.",
+        "Find exactly how your clarifications changed the idea and plan.",
+        "If AI lost a constraint, remind it and check the updated response."
+      ],
+      "reflection": [
+        "Which clarification changed the result most?",
+        "At which step did you get an answer you could act on?"
+      ]
+    },
+    {
+      "id": "sources",
+      "number": "03",
+      "tool": "NotebookLM",
+      "icon": "book",
+      "minutes": "7–10 min",
+      "skill": "Check sources",
+      "title": "Find answers in your documents",
+      "intro": "Compare a general AI conversation with work grounded in specific documents. Check conclusions against citations.",
+      "tools": [
+        { "name": "NotebookLM", "url": "https://notebooklm.google.com/" }
+      ],
+      "steps": [
+        "Open NotebookLM and create a notebook.",
+        "Add your own public materials or download both sample documents below and add them as sources. If TXT upload is unavailable, paste their contents as text.",
+        "Send the prompt below and ask to use only the added sources.",
+        "Open the citations and check that each passage actually supports the conclusion.",
+        "Find at least one unanswered question and check whether AI acknowledges the gap."
+      ],
+      "materials": [
+        {
+          "label": "Download event brief · TXT",
+          "path": "/assets/materials/en/event-brief.txt"
+        },
+        {
+          "label": "Download event update · TXT",
+          "path": "/assets/materials/en/event-update.txt"
+        }
+      ],
+      "prompts": [
+        {
+          "id": "sources-main",
+          "label": "Analyse the added sources",
+          "text": "Analyse the added sources and prepare a short briefing:\n\n- five main facts;\n- three key conclusions;\n- what remains unclear or unsupported;\n- references to passages supporting each conclusion.\n\nDo not add information absent from the sources. If an answer is missing, say so directly. Separate documented facts from your own conclusions."
+        }
+      ],
+      "result": "A structured summary with citations and gaps. With the sample documents, check the budget change from UAH 3,000 to 2,400 and the lack of a confirmed venue.",
+      "checks": [
+        "Open citations and compare their content with the conclusions; a citation alone is not proof.",
+        "Separate source facts, assumptions, and unknowns.",
+        "For the sample files, check that the updated budget is used and no address or contact is invented."
+      ],
+      "reflection": [
+        "Which conclusions can you confirm with a specific quotation?",
+        "What did the sources add beyond a general prompt?"
+      ]
+    },
+    {
+      "id": "arguments",
+      "number": "04",
+      "tool": "Claude",
+      "icon": "target",
+      "minutes": "5–7 min",
+      "skill": "Examine arguments",
+      "title": "Take a critical look at an idea",
+      "intro": "Use AI to find weaknesses in an idea, test assumptions, and consider alternatives.",
+      "tools": [{ "name": "Claude", "url": "https://claude.ai/" }],
+      "steps": [
+        "Open Claude and start a new chat.",
+        "Send the prompt below or substitute your own idea.",
+        "Review both sides. Separate testable claims from assumptions.",
+        "Choose one weakness and identify the evidence needed to investigate it. Check that the suggested alternative addresses the problem."
+      ],
+      "prompts": [
+        {
+          "id": "arguments-main",
+          "label": "Ask for a critical review",
+          "text": "Evaluate my idea: “I want to replace attending lectures entirely with learning from an AI chatbot so I can study at my own pace.”\n\n1. Give three arguments for the idea.\n2. Identify three weaknesses or hidden assumptions.\n3. Explain what evidence I need to test this hypothesis.\n4. Suggest a more balanced alternative.\n\nDo not agree automatically. Do not invent statistics or studies. Separate facts from assumptions."
+        }
+      ],
+      "result": "An analysis with benefits, weaknesses, questions to investigate, and a balanced alternative.",
+      "checks": [
+        "Check that both sides are represented, rather than automatic agreement.",
+        "Look for invented numbers, studies, or overly definite conclusions.",
+        "Name at least one assumption you will investigate yourself."
+      ],
+      "reflection": [
+        "Which argument helped you see another perspective?",
+        "Did you change your initial idea, and why?"
+      ]
+    },
+    {
+      "id": "compare",
+      "number": "05",
+      "tool": "Three assistants",
+      "icon": "layers",
+      "minutes": "7 min",
+      "skill": "Compare results",
+      "title": "Compare three answers to one prompt",
+      "intro": "Explore how similar tools respond differently. Choose an answer using your own criteria.",
+      "tools": [
+        { "name": "ChatGPT", "url": "https://chatgpt.com/" },
+        { "name": "Gemini", "url": "https://gemini.google.com/" },
+        { "name": "Claude", "url": "https://claude.ai/" }
+      ],
+      "steps": [
+        "Start fresh chats in ChatGPT, Gemini, and Claude to avoid previous context.",
+        "Send the identical prompt below to all three, without extra clarifications.",
+        "Compare clarity, the analogy, and the accuracy of the limitation explained.",
+        "Choose the answer that suits you and justify your choice in one or two sentences."
+      ],
+      "prompts": [
+        {
+          "id": "compare-main",
+          "label": "Send this identical prompt to all three chats",
+          "text": "Explain generative artificial intelligence to me. I have no programming experience. Use one everyday analogy, give two applications, and name one limitation. Keep the answer to no more than 120 words."
+        }
+      ],
+      "result": "Save all three answers, compare them using the same criteria, and explain your choice. You are comparing specific responses to a specific prompt, not choosing the best AI for every task.",
+      "checks": [
+        "Check the format: one analogy, two examples, one limitation, and up to 120 words.",
+        "Separate pleasant style from accuracy. Verify the limitation against official sources.",
+        "If one service is unavailable, compare the others and state that limitation."
+      ],
+      "reflection": [
+        "Which answer is clearest to you?",
+        "Which analogy helped most, and which explanation of limitations was most accurate?",
+        "Which tool will you try for your next task, and why?"
+      ]
+    }
+  ]
+}

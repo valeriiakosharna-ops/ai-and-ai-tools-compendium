@@ -1,0 +1,110 @@
+{
+  "concept": "Mercedes-AMG F1 — Monaco Racing Capsule",
+  "image_type": "hyperrealistic_automotive_advertising",
+  "aspect_ratio": "16:9",
+  "quality": "ultra_photorealistic_8k",
+  "main_subject": {
+    "type": "giant_semi_transparent_capsule",
+    "orientation": "horizontal_diagonal",
+    "position": "slightly_elevated_above_racetrack",
+    "design": "aerodynamic_luxury_collectible",
+    "structure": {
+      "opaque_half": {
+        "material": "glossy_metallic_composite",
+        "colors": [
+          "obsidian_black",
+          "brushed_silver",
+          "petronas_turquoise"
+        ],
+        "branding": {
+          "team": "Mercedes-AMG PETRONAS Formula One Team",
+          "logo": "official_team_logo",
+          "racing_number": "12",
+          "driver_name": "KIMI ANTONELLI",
+          "typography": "authentic_motorsport"
+        },
+        "surface": "premium_automotive_finish"
+      },
+      "transparent_half": {
+        "material": "optically_clear_curved_glass",
+        "properties": [
+          "physical_refraction",
+          "accurate_reflections",
+          "realistic_transparency",
+          "subtle_turquoise_edge_lighting"
+        ],
+        "interior": {
+          "vehicle": {
+            "model": "Mercedes-AMG Formula One racing car",
+            "style": "accurate_team_livery",
+            "details": [
+              "realistic_front_and_rear_wings",
+              "carbon_fiber",
+              "racing_tires",
+              "accurate_aerodynamic_geometry"
+            ]
+          },
+          "driver": {
+            "name": "Kimi Antonelli",
+            "appearance": "recognizable_realistic_likeness",
+            "clothing": "official_Mercedes_AMG_racing_suit",
+            "pose": "standing_next_to_car",
+            "expression": "confident_natural",
+            "anatomy": "realistic_human_proportions"
+          },
+          "spatial_rules": [
+            "driver_and_car_fully_inside_capsule",
+            "correct_relative_scale",
+            "no_overlap_or_clipping"
+          ]
+        }
+      }
+    }
+  },
+  "environment": {
+    "location": "Circuit de Monaco",
+    "specific_area": "Fairmont Hairpin",
+    "background_elements": [
+      "Monte_Carlo_architecture",
+      "palm_trees",
+      "Mediterranean_atmosphere",
+      "racing_barriers",
+      "Monaco_cityscape"
+    ],
+    "background_focus": "slightly_blurred",
+    "time": "sunny_afternoon"
+  },
+  "photography": {
+    "camera_angle": "low_three_quarter",
+    "lens": "35mm",
+    "lighting": "natural_cinematic_sunlight",
+    "rendering": "physically_based_ray_tracing",
+    "depth_of_field": "shallow",
+    "textures": "extremely_detailed"
+  },
+  "art_direction": {
+    "mood": "premium_sporting_excellence",
+    "style": [
+      "photorealistic",
+      "luxury_commercial_CGI",
+      "motorsport_editorial",
+      "realistic_product_photography"
+    ],
+    "color_grading": "natural_with_turquoise_accents"
+  },
+  "negative_prompt": [
+    "cartoon",
+    "illustration",
+    "wrong_driver",
+    "wrong_racing_number",
+    "distorted_logos",
+    "unreadable_text",
+    "duplicated_people",
+    "duplicated_cars",
+    "incorrect_proportions",
+    "unrealistic_reflections",
+    "excessive_neon",
+    "plastic_materials",
+    "fantasy_racing_car"
+  ]
+}

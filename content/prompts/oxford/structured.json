@@ -1,0 +1,127 @@
+{
+  "concept": "The Greatest Scientists of All Time Attending a Lecture at Oxford",
+  "image_type": "cinematic_photorealistic_group_scene",
+  "aspect_ratio": "16:9",
+  "quality": "ultra_detailed_high_resolution",
+  "location": {
+    "institution": "University of Oxford",
+    "setting": "historic_lecture_hall",
+    "architecture": [
+      "Gothic_elements",
+      "dark_wooden_benches",
+      "antique_desks",
+      "tall_arched_windows",
+      "stone_details",
+      "traditional_academic_interior"
+    ],
+    "atmosphere": "prestigious_refined_scholarly"
+  },
+  "main_subject": {
+    "type": "group_of_legendary_scientists_as_students",
+    "count": 5,
+    "behavior": "naturally_attending_a_lecture",
+    "figures": [
+      {
+        "name": "Albert Einstein",
+        "field": "theoretical_physics",
+        "recognizable_traits": [
+          "iconic_white_hair",
+          "thoughtful_expression"
+        ],
+        "action": "sitting_and_listening"
+      },
+      {
+        "name": "Isaac Newton",
+        "field": "physics_and_mathematics",
+        "recognizable_traits": [
+          "historical_attire",
+          "classical_scholar_appearance"
+        ],
+        "action": "observing_the_lecture"
+      },
+      {
+        "name": "Marie Curie",
+        "field": "chemistry_and_radioactivity",
+        "recognizable_traits": [
+          "calm_intelligent_presence",
+          "modest_historical_clothing"
+        ],
+        "action": "taking_notes"
+      },
+      {
+        "name": "Charles Darwin",
+        "field": "biology_and_natural_science",
+        "recognizable_traits": [
+          "recognizable_beard",
+          "reflective_expression"
+        ],
+        "action": "listening_thoughtfully"
+      },
+      {
+        "name": "Nikola Tesla",
+        "field": "electrical_engineering_and_invention",
+        "recognizable_traits": [
+          "distinctive_historical_appearance",
+          "elegant_formal_attire",
+          "intense_visionary_expression"
+        ],
+        "action": "looking_toward_the_professor"
+      }
+    ]
+  },
+  "secondary_elements": {
+    "professor": {
+      "position": "front_of_room",
+      "object": "traditional_wooden_lectern",
+      "focus": "slightly_out_of_focus"
+    },
+    "other_students": {
+      "presence": true,
+      "role": "support_realistic_university_environment",
+      "behavior": [
+        "taking_notes",
+        "listening",
+        "reading"
+      ]
+    }
+  },
+  "composition": {
+    "framing": "medium_wide",
+    "focus": "scientists_as_main_subjects",
+    "balance": "show_both_characters_and_architecture",
+    "scene_style": "not_a_formal_group_portrait_but_a_live_lecture_moment"
+  },
+  "lighting": {
+    "primary_source": "soft_daylight_from_tall_windows",
+    "secondary_source": "warm_academic_interior_lighting",
+    "mood": "intellectual_inspiring_refined",
+    "contrast": "gentle_cinematic"
+  },
+  "visual_style": {
+    "style": [
+      "photorealistic",
+      "cinematic_realism",
+      "historical_meets_academic",
+      "subtle_whimsy",
+      "high_detail"
+    ],
+    "textures": [
+      "realistic_skin",
+      "natural_fabric",
+      "wood_and_stone_details"
+    ],
+    "depth_of_field": "natural"
+  },
+  "negative_prompt": [
+    "cartoon",
+    "caricature",
+    "fantasy_magic_effects",
+    "group_portrait_pose",
+    "distorted_anatomy",
+    "duplicate_characters",
+    "overly_dark_scene",
+    "modern_classroom_only",
+    "surrealism",
+    "low_detail"
+  ]
+}

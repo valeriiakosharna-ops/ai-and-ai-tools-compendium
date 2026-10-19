@@ -1,0 +1,31 @@
+Create an ultra-photorealistic, premium CGI advertising image featuring Kimi Antonelli and his Mercedes-AMG PETRONAS Formula One car, enclosed together inside a giant, futuristic, semi-transparent racing capsule.
+Main concept:
+A large, horizontally oriented capsule with sleek aerodynamic proportions, inspired by luxury automotive design and high-end collectible display cases. The capsule is positioned diagonally, slightly elevated above the asphalt of the iconic Circuit de Monaco.
+The capsule consists of two contrasting sections:
+Section 1 — Mercedes-AMG Team Identity
+One half of the capsule is made from solid, glossy metallic material, painted in the official Mercedes-AMG PETRONAS Formula One Team colors: obsidian black, brushed silver, and signature PETRONAS turquoise.
+This section prominently features:
+The official Mercedes-AMG PETRONAS Formula One Team logo.
+The racing number 12, large and clearly readable.
+The driver's name KIMI ANTONELLI, rendered in elegant, authentic motorsport typography.
+Subtle aerodynamic surface detailing and premium automotive finishes.
+Section 2 — Transparent Racing Showcase
+The opposite half is constructed from crystal-clear, slightly tinted architectural glass, revealing an incredibly detailed interior scene.
+Inside the transparent section:
+A perfectly scaled, photorealistic Mercedes-AMG Formula One racing car with accurate aerodynamic components, authentic team livery, visible carbon-fiber elements, and realistic racing tires.
+Kimi Antonelli standing confidently next to the vehicle, wearing his official Mercedes-AMG PETRONAS racing suit.
+Antonelli's facial features, hairstyle, body proportions, and racing uniform must closely resemble his real-world appearance.
+Both the driver and the car must fit naturally inside the capsule, with believable relative proportions and no geometric distortion.
+Background — Monaco Grand Prix
+The scene takes place on the famous Circuit de Monaco, near the Fairmont Hairpin, with recognizable Monte Carlo architecture, palm trees, Mediterranean sunlight, safety barriers, and the luxurious atmosphere of the Monaco Grand Prix.
+The Monaco background should be slightly out of focus, providing cinematic depth while remaining recognizable.
+Lighting and realism:
+Ultra-realistic automotive product photography, physically accurate ray tracing, complex glass reflections and refractions, subtle turquoise ambient illumination, realistic carbon-fiber textures, natural skin details, metallic highlights, and contact shadows.
+The capsule must feel like a real physical object photographed on location rather than a digital illustration.
+Camera and composition:
+Three-quarter perspective, low camera position, 35mm professional photography lens, balanced composition, shallow depth of field, highly detailed hero object.
+Art direction:
+Photorealistic, premium Formula One commercial campaign, sophisticated motorsport branding, cutting-edge CGI, dramatic yet natural lighting, luxury collectible aesthetics, 8K-quality details.
+Avoid:
+Cartoon aesthetics, futuristic fantasy vehicles, incorrect team colors, distorted Mercedes logos, wrong racing numbers, inaccurate driver appearance, duplicate people, duplicate cars, excessive glowing effects, unreadable typography, oversaturated colors, unrealistic glass thickness, and plastic-looking materials.
+Output: Landscape composition, 16:9 aspect ratio.
