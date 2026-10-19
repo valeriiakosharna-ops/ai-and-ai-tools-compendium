@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#25233d">
+  <meta name="theme-color" content="#302A40">
   <meta name="description" content="{{ view.edition.description[view.lang] }}">
   <title>{{ view.title }} · AI Field Guide</title>
   <link rel="icon" href="{{ 'assets/favicon.svg' | url }}" type="image/svg+xml">
@@ -16,7 +16,7 @@
   <a class="skip" href="#main">{{ t.skip }}</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="{{ view.root | url }}"><span class="brand-mark" aria-hidden="true">ai{{ arrow() }}</span><span>FIELD GUIDE<small>{{ t.brand }}</small></span></a>
+      <a class="brand" href="{{ view.root | url }}"><img class="brand-logo" src="{{ 'assets/logo.svg' | url }}" width="73" height="40" alt="NIX"><span>FIELD GUIDE<small>{{ t.brand }}</small></span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>{{ t.menu }}</button>
       <nav id="main-nav" aria-label="{{ t.navHint }}">
         <a href="{{ view.root | url }}"{% if view.section == 'home' %} aria-current="page"{% endif %}>{{ t.home }}</a>
@@ -29,7 +29,7 @@
     {% include "pages/" + view.section + ".njk" %}
   </main>
   <footer class="site-footer"><div class="container">
-    <div class="footer-top"><a class="footer-logo" href="{{ view.root | url }}">AI FIELD GUIDE<span>{{ arrow() }}</span></a><p>{{ t.footer }}</p><a href="#main">{{ t.top }}</a></div>
+    <div class="footer-top"><a class="footer-logo" href="{{ view.root | url }}"><img class="brand-logo" src="{{ 'assets/logo.svg' | url }}" width="65" height="36" alt="NIX"><span>AI FIELD GUIDE</span></a><p>{{ t.footer }}</p><a href="#main">{{ t.top }}</a></div>
     <div class="footer-bottom"><span>{{ view.edition.title[view.lang] }} · {{ t.code }}</span><a href="https://github.com/valeriiakosharna-ops/ai-tools-for-everyday-routine" target="_blank" rel="noopener noreferrer">{{ t.source }} {{ arrow() }}</a></div>
   </div></footer>
   <script id="ui-data" type="application/json">{{ t | jsonScript | safe }}</script>

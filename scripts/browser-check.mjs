@@ -16,6 +16,7 @@ const mime = {
   ".css": "text/css; charset=utf-8",
   ".svg": "image/svg+xml",
   ".webp": "image/webp",
+  ".png": "image/png",
   ".txt": "text/plain; charset=utf-8",
 };
 const server = createServer(async (req, res) => {
@@ -82,7 +83,7 @@ try {
     await page.goto(`${base}${lang}/`);
     await noOverflow();
     assert.equal(await page.locator("html").getAttribute("lang"), lang);
-    assert.equal(await page.locator('.menu-toggle').isVisible(), false);
+    assert.equal(await page.locator(".menu-toggle").isVisible(), false);
     checks++;
     await page.goto(`${base}${lang}/taxonomy/`);
     await page.locator(".tool-controls").waitFor({ state: "visible" });
@@ -104,6 +105,15 @@ try {
     await page.goto(`${base}${lang}/image-prompts/`);
     assert.equal(await page.locator("details[open]").count(), 0);
     assert.equal(await page.locator(".prompt-disclosure").count(), 4);
+    assert.equal(await page.locator(".image-placeholder").count(), 0);
+    const galleryImages = page.locator(".image-slot img");
+    assert.equal(await galleryImages.count(), 5);
+    for (const image of await galleryImages.all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate((img) => img.decode());
+      assert.ok(await image.evaluate((img) => img.naturalWidth > 0));
+    }
+    checks++;
     const first = page.locator(".prompt-disclosure").first();
     await first.locator("summary").click();
     await first.locator("pre").waitFor({ state: "visible" });
@@ -277,6 +287,11 @@ try {
     fullPage: true,
   });
   await capture.goto(`${base}uk/image-prompts/`);
+  for (const image of await capture.locator('.image-slot img').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate(img => img.decode());
+  }
+  await capture.evaluate(() => scrollTo(0, 0));
   await capture.screenshot({
     path: path.join(screenshots, "images-desktop.png"),
     fullPage: true,

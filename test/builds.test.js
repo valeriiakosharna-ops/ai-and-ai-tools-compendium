@@ -125,6 +125,24 @@ test("an added edition can reorder/remove lessons, select one image example, and
       path.join(temporary, "editions.json"),
       JSON.stringify(editions),
     );
+    const images = JSON.parse(
+      await readFile(path.join(temporary, "content/images.json"), "utf8"),
+    );
+    images.oxford = {
+      references: [
+        {
+          src: "assets/images/oxford/reference-1.webp",
+          role: "hall",
+          width: 1600,
+          height: 900,
+        },
+      ],
+      result: { src: "assets/images/oxford/result.webp", width: 1, height: 1 },
+    };
+    await writeFile(
+      path.join(temporary, "content/images.json"),
+      JSON.stringify(images),
+    );
     await mkdir(path.join(temporary, "src/assets/images/oxford"), {
       recursive: true,
     });

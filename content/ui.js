@@ -7,7 +7,7 @@ export default {
     taxonomy: "Інструменти",
     practice: "Практика",
     simulators: "Як працює ШІ",
-    "image-prompts": "Зображення",
+    "image-prompts": "Візуальні промпти",
     skip: "Перейти до змісту",
     menu: "Відкрити меню",
     closeMenu: "Закрити меню",
@@ -244,7 +244,7 @@ export default {
     imageRoles: {
       driver: "Референс 01 · Гонщик",
       car: "Референс 02 · Болід",
-      hall: "Референс 01 · Лекційна зала",
+      hall: "Референс 01 · Інтер’єр Оксфорду",
     },
     imageComparisons: {
       mercedes:
@@ -271,7 +271,7 @@ export default {
     taxonomy: "Tools",
     practice: "Practice",
     simulators: "How AI works",
-    "image-prompts": "Image prompts",
+    "image-prompts": "Visual prompts",
     skip: "Skip to content",
     menu: "Open menu",
     closeMenu: "Close menu",
@@ -500,7 +500,7 @@ export default {
     imageRoles: {
       driver: "Reference 01 · Driver",
       car: "Reference 02 · Race car",
-      hall: "Reference 01 · Lecture hall",
+      hall: "Reference 01 · Oxford interior",
     },
     imageComparisons: {
       mercedes:

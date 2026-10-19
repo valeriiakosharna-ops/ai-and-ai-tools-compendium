@@ -9,6 +9,7 @@ const read = (path) =>
   readFileSync(new URL(`../../${path}`, import.meta.url), "utf8");
 export default function () {
   const editions = json("editions.json");
+  const imageFiles = json("content/images.json");
   const source = json("content/uk/taxonomy.json");
   validateEditions(editions, {
     tools: source.tools.map((t) => t.id),
@@ -67,12 +68,16 @@ export default function () {
           tokens: encode(value, { disallowedSpecial: new Set() }).length,
           characters: [...value].length,
         }));
-        const image = (name, role) => {
-          const path = `assets/images/${id}/${name}.webp`;
+        const image = (descriptor, role) => {
+          const path = descriptor.src;
+          if (!path.startsWith("assets/") || path.split("/").includes(".."))
+            throw new Error(`Invalid image path: ${path}`);
           return {
             path,
             exists: existsSync(new URL(`../${path}`, import.meta.url)),
-            label: role,
+            label: descriptor.role || role,
+            width: descriptor.width,
+            height: descriptor.height,
           };
         };
         return {
@@ -82,11 +87,10 @@ export default function () {
           compact,
           metrics,
           delta: Math.round((metrics[1].tokens / metrics[0].tokens - 1) * 100),
-          references:
-            id === "mercedes"
-              ? [image("reference-1", "driver"), image("reference-2", "car")]
-              : [image("reference-1", "hall")],
-          result: image("result", "result"),
+          references: imageFiles[id].references.map((reference) =>
+            image(reference),
+          ),
+          result: image(imageFiles[id].result, "result"),
         };
       });
       const common = {

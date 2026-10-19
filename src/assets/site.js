@@ -187,7 +187,7 @@ if ($("#agent-demo")) {
   let current = before;
   const render = () => {
     $("#agent-preview").srcdoc =
-      `<!doctype html><html lang="${document.documentElement.lang}"><head><meta charset="utf-8"><style>body{padding:20px;font:16px/1.6 system-ui;color:#25233d}h1{font-size:26px}button{padding:10px 20px;border:0;background:#e7e5ff;color:#25233d}</style></head><body>${current}</body></html>`;
+      `<!doctype html><html lang="${document.documentElement.lang}"><head><meta charset="utf-8"><style>body{padding:20px;font:16px/1.6 system-ui;color:#302A40}h1{font-size:26px}button{padding:10px 20px;border:0;background:#81D0F4;color:#302A40}</style></head><body>${current}</body></html>`;
   };
   $(".demo-controls").hidden = false;
   $("#agent-preview").hidden = false;
