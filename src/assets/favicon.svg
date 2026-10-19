@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#25233d"/><text x="10" y="44" fill="#dfed9c" font-family="Arial,sans-serif" font-weight="700" font-size="40">ai</text></svg>
+<svg width="70" height="80" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M70 57.7178V80.0009L35 51.1425L0 80.0009V57.7178L35 28.8594L70 57.7178Z" fill="#00A6EB"/>
+<path d="M35 28.8584L48.501 40.0365L70 22.2831V0L35 28.8584Z" fill="#E60036"/>
+<path d="M0 22.2831L21.4256 40.0365L35 28.8584L0 0V22.2831Z" fill="#E60036"/>
+</svg>
