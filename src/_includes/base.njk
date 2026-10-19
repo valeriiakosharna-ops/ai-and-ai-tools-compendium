@@ -1,0 +1,38 @@
+{% from "icons.njk" import arrow, spark %}
+<!doctype html>
+<html lang="{{ view.lang }}" data-edition="{{ view.slug }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#25233d">
+  <meta name="description" content="{{ view.edition.description[view.lang] }}">
+  <title>{{ view.title }} · AI Field Guide</title>
+  <link rel="icon" href="{{ 'assets/favicon.svg' | url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ 'assets/styles.css' | url }}">
+  <script src="{{ 'assets/site.js' | url }}" type="module"></script>
+  {% if view.switchRoot %}<link rel="alternate" hreflang="{{ 'en' if view.lang == 'uk' else 'uk' }}" href="{{ (view.switchRoot + view.route) | url }}">{% endif %}
+</head>
+<body>
+  <a class="skip" href="#main">{{ t.skip }}</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ view.root | url }}"><span class="brand-mark" aria-hidden="true">ai{{ arrow() }}</span><span>FIELD GUIDE<small>{{ t.brand }}</small></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>{{ t.menu }}</button>
+      <nav id="main-nav" aria-label="{{ t.navHint }}">
+        <a href="{{ view.root | url }}"{% if view.section == 'home' %} aria-current="page"{% endif %}>{{ t.home }}</a>
+        {% for section in view.edition.sections %}<a href="{{ (view.root + section + '/') | url }}"{% if view.section == section %} aria-current="page"{% endif %}>{{ t[section] }}</a>{% endfor %}
+      </nav>
+      {% if view.switchRoot %}<a class="language-switch" lang="{{ 'en' if view.lang == 'uk' else 'uk' }}" href="{{ (view.switchRoot + view.route) | url }}" aria-label="{{ t.other }}"><span>{{ t.code }}</span> / {{ 'EN' if view.lang == 'uk' else 'UK' }} {{ arrow() }}</a>{% else %}<span class="language-switch">{{ t.code }}</span>{% endif %}
+    </div>
+  </header>
+  <main id="main">
+    {% include "pages/" + view.section + ".njk" %}
+  </main>
+  <footer class="site-footer"><div class="container">
+    <div class="footer-top"><a class="footer-logo" href="{{ view.root | url }}">AI FIELD GUIDE<span>{{ arrow() }}</span></a><p>{{ t.footer }}</p><a href="#main">{{ t.top }}</a></div>
+    <div class="footer-bottom"><span>{{ view.edition.title[view.lang] }} · {{ t.code }}</span><a href="https://github.com/valeriiakosharna-ops/ai-tools-for-everyday-routine" target="_blank" rel="noopener noreferrer">{{ t.source }} {{ arrow() }}</a></div>
+  </div></footer>
+  <script id="ui-data" type="application/json">{{ t | jsonScript | safe }}</script>
+  {% if view.section == 'simulators' %}<script id="lab-data" type="application/json">{{ view.lab | jsonScript | safe }}</script><script type="module" src="{{ 'assets/lab.js' | url }}"></script>{% endif %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+<section class="hero container">
+  <div class="hero-copy"><p class="eyebrow"><span class="live-dot"></span>{{ t.eyebrow }}</p>
+    <h1>{{ t.hero }}<br><em>{{ t.heroAccent }}</em></h1>
+    <p class="lede">{{ t.heroText }}</p>
+    <div class="hero-actions">{% if 'taxonomy' in view.edition.sections %}<a class="button primary" href="{{ (view.root + 'taxonomy/') | url }}">{{ t.start }} <span>{{ arrow() }}</span></a>{% endif %}<a class="text-link" href="#guide">{{ t.explore }} ↓</a></div>
+    <p class="fineprint">{{ t.noSetup }}</p>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="art-orbit"></div><div class="art-orbit orbit-two"></div><span class="art-cross">{{ spark() }}</span>
+    <div class="art-heading">HUMAN IDEAS.<br>AI POSSIBILITIES.</div>
+    {% for step in t.route %}<div class="route-card route-{{ loop.index }}"><span class="route-number">0{{ loop.index }}</span><span>{{ step }}</span><span class="route-arrow">{% if loop.last %}✓{% else %}{{ arrow() }}{% endif %}</span></div>{% endfor %}
+    <div class="art-note">{{ t.routeNote }}</div><span class="art-corner">{{ arrow() }}</span>
+  </div>
+</section>
+<div class="tool-strip"><div class="container"><span class="eyebrow">{{ t.toolkit }}</span><div>{% for tool in view.taxonomy.tools %}<span>{{ tool.name }}</span>{% endfor %}</div></div></div>
+<section id="guide" class="container section">
+  <div class="section-heading"><div><p class="eyebrow">{{ t.guide }}</p><h2>{{ t.guideTitle }}</h2></div><p>{{ t.guideText }}</p></div>
+  <div class="module-grid">
+  {% set symbols = {taxonomy:"⌘",practice:"→",simulators:"◈","image-prompts":"*"} %}
+  {% for section in view.edition.sections %}<a class="module-card module-{{ section }}" href="{{ (view.root + section + '/') | url }}"><div class="card-top"><span class="eyebrow">0{{ loop.index }} / {{ section | upper }}</span><span class="circle-arrow">{{ arrow() }}</span></div><div class="module-symbol" aria-hidden="true">{% if section == 'practice' %}{{ arrow() }}{% elif section == 'image-prompts' %}{{ spark() }}{% else %}{{ symbols[section] }}{% endif %}</div><h3>{{ t[section] }}</h3><p>{{ t.moduleDescriptions[section] }}</p><span class="card-link">{{ t.open }} →</span></a>{% endfor %}
+  </div>
+</section>
+<section class="container"><div class="principle"><span aria-hidden="true">{{ spark() }}</span><div><p class="eyebrow">AI + YOU</p><h2>{{ t.principle }}</h2><p>{{ t.principleText }}</p></div></div></section>

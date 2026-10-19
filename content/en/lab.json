@@ -1,0 +1,102 @@
+{
+  "documents": [
+    {
+      "id": "rest",
+      "title": "Rest before exams",
+      "text": "Alternate work with short breaks. Keep regular sleep and make time to recover.",
+      "x": 20,
+      "y": 23
+    },
+    {
+      "id": "stress",
+      "title": "Reduce study anxiety",
+      "text": "Break a large task into manageable steps. Ask for support if you are struggling.",
+      "x": 32,
+      "y": 32
+    },
+    {
+      "id": "schedule",
+      "title": "Plan your study workload",
+      "text": "Spread preparation across several days and leave spare time.",
+      "x": 43,
+      "y": 18
+    },
+    {
+      "id": "deadline",
+      "title": "Check the submission deadline",
+      "text": "Find the date and time in the current submission rules.",
+      "x": 70,
+      "y": 23
+    },
+    {
+      "id": "extension",
+      "title": "Arrange a deadline extension",
+      "text": "Check how to obtain approval for a later submission.",
+      "x": 82,
+      "y": 34
+    },
+    {
+      "id": "battery",
+      "title": "Check the car battery",
+      "text": "Compare signs of a flat battery with your car's behaviour.",
+      "x": 71,
+      "y": 82
+    },
+    {
+      "id": "starter",
+      "title": "Check the car starter",
+      "text": "Investigate possible reasons the engine will not start.",
+      "x": 85,
+      "y": 75
+    }
+  ],
+  "queries": [
+    {
+      "id": "wellbeing",
+      "text": "How can I avoid burnout while preparing?",
+      "x": 25,
+      "y": 26
+    },
+    {
+      "id": "deadline",
+      "text": "Can I hand in my work later?",
+      "x": 78,
+      "y": 30
+    },
+    { "id": "car", "text": "Why will my vehicle not start?", "x": 79, "y": 80 },
+    { "id": "keyword", "text": "starter", "x": 85, "y": 75 }
+  ],
+  "ragSources": [
+    {
+      "id": "R1",
+      "title": "Current rules · version 2",
+      "text": "Submit your coursework by 18:00 on 20 November 2026. These rules replace archived version 1.",
+      "archived": false
+    },
+    {
+      "id": "R2",
+      "title": "Extension conditions · version 2",
+      "text": "Request approval before the main deadline if you need extra time. Once approved, submit by 18:00 on 23 November 2026. An extension is not automatic.",
+      "archived": false
+    },
+    {
+      "id": "R0",
+      "title": "Archived rules · version 1",
+      "text": "Submit your coursework by 18:00 on 18 November 2026. Check the newer version: these rules are no longer current.",
+      "archived": true
+    }
+  ],
+  "ragQuestions": [
+    {
+      "id": "deadline",
+      "text": "When must I submit my work?",
+      "sourceIds": ["R1"]
+    },
+    {
+      "id": "extension",
+      "text": "Can I submit my work later?",
+      "sourceIds": ["R1", "R2"]
+    },
+    { "id": "fee", "text": "What fee must I pay?", "sourceIds": [] }
+  ]
+}

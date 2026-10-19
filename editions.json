@@ -1,0 +1,24 @@
+{
+  "universal": {
+    "title": { "uk": "ШІ для щоденних справ", "en": "AI for everyday life" },
+    "description": {
+      "uk": "Практичний довідник: від першого запиту до перевіреного результату.",
+      "en": "A practical field guide, from your first prompt to a checked result."
+    },
+    "sections": ["taxonomy", "practice", "simulators", "image-prompts"],
+    "tools": "all",
+    "exercises": "all",
+    "imageExamples": ["mercedes", "oxford"]
+  },
+  "starter": {
+    "title": { "uk": "ШІ: швидкий старт", "en": "AI: a quick start" },
+    "description": {
+      "uk": "Приклад окремої збірки: три інструменти та два приклади для зображень.",
+      "en": "A sample custom edition: three tools and two image examples."
+    },
+    "sections": ["taxonomy", "image-prompts"],
+    "tools": ["chatgpt", "notebooklm", "github-copilot"],
+    "exercises": [],
+    "imageExamples": ["mercedes", "oxford"]
+  }
+}

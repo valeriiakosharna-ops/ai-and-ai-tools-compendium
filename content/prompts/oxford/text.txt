@@ -1,0 +1,25 @@
+Create an ultra-photorealistic, cinematic image of a university lecture taking place at the University of Oxford, where five of the greatest scientists of all time are sitting together as students in the classroom.
+
+The setting is a historic Oxford lecture hall with elegant Gothic architecture, dark wooden benches, antique desks, tall arched windows, stone details, warm academic lighting, and a refined scholarly atmosphere. The classroom should feel authentic, prestigious, and recognizably Oxford.
+
+Seated naturally among the students are five legendary scientists from different fields, each clearly recognizable by their appearance and associated style:
+
+- Albert Einstein — representing theoretical physics, with his iconic white hair and thoughtful expression.
+- Isaac Newton — representing classical physics and mathematics, dressed in period-appropriate historical attire.
+- Marie Curie — representing chemistry and radioactivity, calm, intelligent, and dignified.
+- Charles Darwin — representing biology and natural science, with his recognizable beard and reflective demeanor.
+- Nikola Tesla — representing electrical engineering and invention, elegant, intense, and visionary, with a distinctive historical appearance.
+
+They should all be seated like real students attending the lecture, not posing for a group portrait. Some are taking notes, some are listening attentively, and some are looking toward the professor. Their body language should feel natural and believable.
+
+At the front of the room, a professor is giving a lecture near a traditional wooden lectern, slightly out of focus. Other ordinary students may also be present, helping the scene feel like a real academic environment.
+
+The composition should place the famous scientists as the central focus while still showing enough of the Oxford lecture hall to establish the location. Their clothing, facial features, and posture should help distinguish them clearly, while keeping the overall image cohesive and realistic.
+
+Lighting should be soft and cinematic, combining natural daylight from the tall windows with warm interior illumination. The mood should be intellectual, refined, inspiring, and slightly whimsical, as if history’s greatest minds have gathered together for one lecture.
+
+Visual style: photorealistic, cinematic realism, subtle academic grandeur, elegant period-meets-modern atmosphere, highly detailed faces, realistic skin textures, believable clothing materials, and natural depth of field.
+
+Avoid cartoon style, caricature, exaggerated fantasy, overly theatrical poses, modern classroom clichés, distorted anatomy, duplicate people, overly dark lighting, or surreal effects.
+
+Output: high-resolution cinematic image, 16:9 aspect ratio.
