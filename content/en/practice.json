@@ -9,7 +9,12 @@
       "skill": "Structure a task",
       "title": "Turn a messy task into a plan",
       "intro": "See how AI helps identify what matters and turn an unclear task into concrete actions.",
-      "tools": [{ "name": "ChatGPT", "url": "https://chatgpt.com/" }],
+      "tools": [
+        {
+          "name": "ChatGPT",
+          "url": "https://chatgpt.com/"
+        }
+      ],
       "steps": [
         "Open ChatGPT and start a new chat.",
         "Copy the prompt below. Use the sample situation or replace it with your own constraints.",
@@ -48,7 +53,12 @@
       "skill": "Add context",
       "title": "Refine your prompt step by step",
       "intro": "See how clarifications change a response. Your first prompt does not have to be perfect.",
-      "tools": [{ "name": "Gemini", "url": "https://gemini.google.com/" }],
+      "tools": [
+        {
+          "name": "Gemini",
+          "url": "https://gemini.google.com/"
+        }
+      ],
       "steps": [
         "Open Gemini and start a new chat.",
         "Send the first short prompt and save the response.",
@@ -93,7 +103,10 @@
       "title": "Find answers in your documents",
       "intro": "Compare a general AI conversation with work grounded in specific documents. Check conclusions against citations.",
       "tools": [
-        { "name": "NotebookLM", "url": "https://notebooklm.google.com/" }
+        {
+          "name": "NotebookLM",
+          "url": "https://notebooklm.google.com/"
+        }
       ],
       "steps": [
         "Open NotebookLM and create a notebook.",
@@ -139,7 +152,12 @@
       "skill": "Examine arguments",
       "title": "Take a critical look at an idea",
       "intro": "Use AI to find weaknesses in an idea, test assumptions, and consider alternatives.",
-      "tools": [{ "name": "Claude", "url": "https://claude.ai/" }],
+      "tools": [
+        {
+          "name": "Claude",
+          "url": "https://claude.ai/"
+        }
+      ],
       "steps": [
         "Open Claude and start a new chat.",
         "Send the prompt below or substitute your own idea.",
@@ -174,9 +192,18 @@
       "title": "Compare three answers to one prompt",
       "intro": "Explore how similar tools respond differently. Choose an answer using your own criteria.",
       "tools": [
-        { "name": "ChatGPT", "url": "https://chatgpt.com/" },
-        { "name": "Gemini", "url": "https://gemini.google.com/" },
-        { "name": "Claude", "url": "https://claude.ai/" }
+        {
+          "name": "ChatGPT",
+          "url": "https://chatgpt.com/"
+        },
+        {
+          "name": "Gemini",
+          "url": "https://gemini.google.com/"
+        },
+        {
+          "name": "Claude",
+          "url": "https://claude.ai/"
+        }
       ],
       "steps": [
         "Start fresh chats in ChatGPT, Gemini, and Claude to avoid previous context.",
@@ -201,6 +228,62 @@
         "Which answer is clearest to you?",
         "Which analogy helped most, and which explanation of limitations was most accurate?",
         "Which tool will you try for your next task, and why?"
+      ]
+    },
+    {
+      "id": "copilot",
+      "number": "06",
+      "tool": "GitHub Copilot",
+      "icon": "code",
+      "minutes": "10–15 min",
+      "skill": "Edit code with Copilot",
+      "title": "Build a seat counter with GitHub Copilot",
+      "intro": "Open a ready-made HTML file in VS Code and delegate a small change to Copilot. Verify it in your browser. You need a GitHub account and access to Copilot in your editor; features depend on your plan and settings.",
+      "tools": [
+        {
+          "name": "GitHub Copilot",
+          "url": "https://github.com/features/copilot"
+        },
+        {
+          "name": "VS Code",
+          "url": "https://code.visualstudio.com/docs/copilot/setup"
+        }
+      ],
+      "steps": [
+        "Download the training HTML below into a separate folder. Open it in your browser: it shows 20 seats and a button that does not yet change anything. This is a local exercise, not a real registration service.",
+        "Open the folder in VS Code. Set up GitHub Copilot using the official instructions, sign in, and open Copilot Chat beside the file.",
+        "Add the open file to the chat context. Use the first prompt to get an explanation without editing. Locate the reserve button and availability status.",
+        "Send the second prompt. Use an available editing or agent mode to apply the change. If you only receive code in chat, apply the suggested change to your copy yourself.",
+        "Review the diff before saving: the change should implement the counter without new files, libraries, or network requests. Save the HTML and refresh it in your browser.",
+        "Click three times: 17 seats should remain. Continue to zero: the button should disable. Reloading should restore 20. If something fails, tell Copilot the exact action, expected behaviour, and actual result."
+      ],
+      "materials": [
+        {
+          "label": "Download the Copilot training HTML",
+          "path": "/assets/materials/en/copilot-starter.html"
+        }
+      ],
+      "prompts": [
+        {
+          "id": "copilot-explain",
+          "label": "Step 1 / Understand the starting code",
+          "text": "Explain the open copilot-starter.html in simple terms. Where are the button with id=\"reserve\" and the message with id=\"availability\"? Why does clicking not change the seat count yet? Also explain role=\"status\" and aria-live=\"polite\". Do not edit the file yet."
+        },
+        {
+          "id": "copilot-edit",
+          "label": "Step 2 / Delegate a specific change",
+          "text": "Add a JavaScript seat counter to the open copilot-starter.html. Start with 20. Every click on #reserve should subtract 1 and update #availability. Disable the button at zero and prevent negative numbers. Reloading the page should restore 20.\n\nPreserve the heading, paragraph, styles, element IDs, and accessible status announcement. Work only in this HTML file: no dependencies, new files, persistence, or network requests. Show the diff and explain how to manually test 20 → 17 → 0 and reset on reload."
+        }
+      ],
+      "result": "One HTML file with a counter: 20 → 17 after three clicks, 0 and a disabled button after twenty, and 20 again after reload. You reviewed the diff and verified behaviour in a browser.",
+      "checks": [
+        "Check that three clicks leave 17 seats, without subtracting multiple seats per click.",
+        "At zero the button is disabled, the count cannot go negative, and the status retains aria-live.",
+        "Reloading restores 20. The heading, explanation, and styles remain unchanged. There are no added dependencies or browser console errors."
+      ],
+      "reflection": [
+        "Were the expected behaviour and boundaries specific enough in your request?",
+        "What might you have missed if you accepted Copilot’s suggestion without testing it?"
       ]
     }
   ]

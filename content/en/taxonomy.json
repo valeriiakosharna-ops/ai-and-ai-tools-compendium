@@ -46,7 +46,6 @@
       "id": "chatgpt",
       "name": "ChatGPT",
       "maker": "OPENAI",
-      "mark": "GPT",
       "category": "dialogue",
       "type": "General-purpose AI assistant",
       "summary": "Get help with writing, ideas, learning, and analysing your data.",
@@ -69,14 +68,17 @@
           "label": "ChatGPT capabilities overview",
           "url": "https://help.openai.com/en/articles/9260256-chatgpt-capabilities-overview"
         },
-        { "label": "OpenAI Help Center", "url": "https://help.openai.com/" }
-      ]
+        {
+          "label": "OpenAI Help Center",
+          "url": "https://help.openai.com/"
+        }
+      ],
+      "logo": "/assets/tools/chatgpt.svg"
     },
     {
       "id": "gemini",
       "name": "Gemini",
       "maker": "GOOGLE",
-      "mark": "✦",
       "category": "dialogue",
       "type": "General-purpose AI assistant",
       "summary": "Combine conversation, research, and supported Google services.",
@@ -99,14 +101,17 @@
           "label": "Gemini Help",
           "url": "https://support.google.com/gemini/?hl=en"
         },
-        { "label": "Gemini web app", "url": "https://gemini.google.com/" }
-      ]
+        {
+          "label": "Gemini web app",
+          "url": "https://gemini.google.com/"
+        }
+      ],
+      "logo": "/assets/tools/gemini.svg"
     },
     {
       "id": "claude",
       "name": "Claude",
       "maker": "ANTHROPIC",
-      "mark": "✳︎",
       "category": "dialogue",
       "type": "General-purpose AI assistant",
       "summary": "Edit writing, analyse documents, and examine complex arguments.",
@@ -133,14 +138,17 @@
           "label": "Claude documentation",
           "url": "https://platform.claude.com/docs/en/overview"
         },
-        { "label": "Claude web app", "url": "https://claude.ai/" }
-      ]
+        {
+          "label": "Claude web app",
+          "url": "https://claude.ai/"
+        }
+      ],
+      "logo": "/assets/tools/claude.svg"
     },
     {
       "id": "notebooklm",
       "name": "NotebookLM",
       "maker": "GOOGLE",
-      "mark": "N",
       "category": "research",
       "type": "Research with your sources",
       "summary": "Add documents to get answers, comparisons, and learning materials grounded in them.",
@@ -158,18 +166,21 @@
       "object": "A collection of sources",
       "result": "Information synthesis and study materials",
       "links": [
-        { "label": "NotebookLM", "url": "https://notebooklm.google.com/" },
+        {
+          "label": "NotebookLM",
+          "url": "https://notebooklm.google.com/"
+        },
         {
           "label": "NotebookLM Help",
           "url": "https://support.google.com/notebooklm/"
         }
-      ]
+      ],
+      "logo": "/assets/tools/notebooklm.svg"
     },
     {
       "id": "claude-code",
       "name": "Claude Code",
       "maker": "ANTHROPIC",
-      "mark": ">_",
       "category": "coding",
       "type": "Software development agent",
       "summary": "Delegate code exploration, file changes, and checks in your project.",
@@ -195,13 +206,13 @@
           "label": "Quickstart",
           "url": "https://code.claude.com/docs/en/quickstart"
         }
-      ]
+      ],
+      "logo": "/assets/tools/claude-code.svg"
     },
     {
       "id": "codex",
       "name": "Codex",
       "maker": "OPENAI",
-      "mark": "</>",
       "category": "coding",
       "type": "Software development agent",
       "summary": "Describe a task and get an implemented change, checks, and an explanation.",
@@ -228,14 +239,17 @@
           "label": "Codex Help Center",
           "url": "https://help.openai.com/en/collections/14937394-codex"
         },
-        { "label": "Codex at OpenAI", "url": "https://openai.com/codex/" }
-      ]
+        {
+          "label": "Codex at OpenAI",
+          "url": "https://openai.com/codex/"
+        }
+      ],
+      "logo": "/assets/tools/codex.svg"
     },
     {
       "id": "github-copilot",
       "name": "GitHub Copilot",
       "maker": "GITHUB",
-      "mark": "⌘",
       "category": "coding",
       "type": "AI coding assistant",
       "summary": "Get suggestions in your editor, discuss code, and delegate changes to an agent.",
@@ -261,7 +275,8 @@
           "label": "Features and plans",
           "url": "https://github.com/features/copilot"
         }
-      ]
+      ],
+      "logo": "/assets/tools/github-copilot.svg"
     }
   ]
 }

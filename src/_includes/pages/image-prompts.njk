@@ -1,21 +1,25 @@
-{% macro imageSlot(image, label) %}
+{% macro imageSlot(image, label, downloadable = false) %}
 <figure class="image-slot{% if not image.exists %} awaiting-image{% endif %}">
   {% if image.exists %}<img src="{{ image.path | url }}" alt="{{ label }}" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">{% else %}<div class="image-placeholder"><span aria-hidden="true">▧</span><strong>{{ t.pending }}</strong><p>{{ t.pendingNote }}</p></div>{% endif %}
-  <figcaption>{{ label }}</figcaption>
+  <figcaption><span>{{ label }}</span>{% if downloadable and image.exists %}<a href="{{ image.path | url }}" download>{{ t.downloadReference }} ↓</a>{% endif %}</figcaption>
 </figure>
 {% endmacro %}
-<section class="page-hero container"><p class="eyebrow">THE IMAGE NOTEBOOK / 04</p><h1>{{ t.imagesHero }}</h1><p class="lede">{{ t.imagesIntro }}</p><div class="anchor-links">{% for item in view.examples %}<a href="#{{ item.id }}">{{ loop.index | pad }} {{ t.imageTitles[item.id] }} ↓</a>{% endfor %}<a href="#tips">{{ t.tipsTitle }} ↓</a></div></section>
+<section class="page-hero container"><p class="eyebrow">THE IMAGE NOTEBOOK / 04</p><h1>{{ t.imagesHero }}</h1><p class="lede">{{ t.imagesIntro }}</p><div class="anchor-links">{% for item in view.examples %}<a href="#{{ item.id }}">{{ loop.index | pad }} {{ t.imageTitles[item.id] }} ↓</a>{% endfor %}<a href="#tips">{{ t.revealTips }} ↓</a></div></section>
 <div class="container image-content">
 {% for item in view.examples %}<article id="{{ item.id }}" class="image-example reading-section">
-  <div class="section-heading"><div><p class="eyebrow">EXAMPLE {{ loop.index | pad }} / TEXT ↔ JSON</p><h2>{{ t.imageTitles[item.id] }}</h2></div><span class="pill">16:9</span></div><p class="example-intro">{{ t.imageDescriptions[item.id] }}</p>
-  <h3>{{ t.references }} <span class="count">{{ item.references | length }}</span></h3><div class="reference-grid refs-{{ item.references | length }}">{% for reference in item.references %}{{ imageSlot(reference,t.imageRoles[reference.label]) }}{% endfor %}</div>
+  <div class="section-heading"><div><p class="eyebrow">{{ loop.index | pad }} / {{ t.imageExerciseLabel }}</p><h2>{{ t.imageTitles[item.id] }}</h2></div><span class="pill">16:9</span></div><p class="example-intro">{{ t.imageDescriptions[item.id] }}</p>
+  <div class="image-task"><h3>{{ t.imageExerciseTitle }}</h3><ol class="steps">{% for step in t.imageExerciseSteps %}<li>{{ step }}</li>{% endfor %}</ol></div>
+  <h3>{{ t.references }} <span class="count">{{ item.references | length }}</span></h3><div class="reference-grid refs-{{ item.references | length }}">{% for reference in item.references %}{{ imageSlot(reference,t.imageRoles[reference.label],true) }}{% endfor %}</div>
   <h3>{{ t.result }}</h3>{{ imageSlot(item.result,t.result + ' · ' + t.imageTitles[item.id]) }}
   <p class="fineprint">{{ t.formatNote }}</p><div class="prompt-pair">
     <details class="prompt-disclosure"><summary><span><span class="format-icon" aria-hidden="true">Aa</span>{{ t.plain }}<small>{{ t.englishPrompt }}</small></span><span class="disclosure-plus" aria-hidden="true">+</span></summary>{% set prompt = {id:item.id + '-text',label:t.plain,text:item.text} %}{% include 'prompt.njk' %}</details>
     <details class="prompt-disclosure"><summary><span><span class="format-icon" aria-hidden="true">{ }</span>{{ t.structured }}<small>{{ t.englishPrompt }}</small></span><span class="disclosure-plus" aria-hidden="true">+</span></summary>{% set prompt = {id:item.id + '-json',label:t.structured,text:item.structured} %}{% include 'prompt.njk' %}</details>
   </div>
+  <details class="analysis-disclosure" id="{{ item.id }}-analysis"><summary><span>{{ t.revealAnalysis }}<small>{{ t.analysisAfterAttempt }}</small></span></summary><div class="analysis-body">
   <div class="metrics-panel"><div><p class="eyebrow">PROMPT METRICS</p><h3>{{ t.metrics }}</h3><p>{{ t.difference }}: <strong>{{ '+' if item.delta > 0 else '' }}{{ item.delta }}%</strong></p></div><div class="table-scroll" tabindex="0" role="region" aria-label="{{ t.metrics }}"><table class="metrics-table"><thead><tr><th scope="col">{{ t.format }}</th><th scope="col">{{ t.tokenCount }}</th><th scope="col">{{ t.characters }}</th></tr></thead><tbody>{% for label in [t.plain,t.structured,t.compact] %}<tr><th scope="row">{{ label }}</th><td>{{ item.metrics[loop.index0].tokens }}</td><td>{{ item.metrics[loop.index0].characters }}</td></tr>{% endfor %}</tbody></table></div></div>
   <p class="fineprint">{{ t.metricsNote }}</p><div class="comparison-copy"><div><h3>{{ t.efficiency }}</h3><p>{{ t.efficiencyText }}</p><p>{{ t.imageComparisons[item.id] }}</p></div><div class="note"><p>{{ t.notEquivalent }}</p><p>{{ t.visualEvidence }}</p></div></div>
+  <h3>{{ t.compareYourAttempt }}</h3><ul class="check-list">{% for check in t.imageReflection %}<li>{{ check }}</li>{% endfor %}</ul>
+  </div></details>
 </article>{% endfor %}
-<section class="section" id="tips"><p class="eyebrow">THE PROMPT PLAYBOOK</p><h2>{{ t.tipsTitle }}</h2><div class="tips-grid">{% for tip in t.tips %}<article><span class="eyebrow">{{ loop.index | pad }}</span><h3>{{ tip[0] }}</h3><p>{{ tip[1] }}</p></article>{% endfor %}</div><h3>{{ t.convertTitle }}</h3>{% set prompt = {id:'convert-json',label:'TEXT → JSON',text:t.convertPrompt} %}{% include 'prompt.njk' %}</section>
+<section class="section" id="tips"><details class="analysis-disclosure"><summary><span>{{ t.revealTips }}<small>{{ t.analysisAfterAttempt }}</small></span></summary><div class="analysis-body"><p class="eyebrow">THE PROMPT PLAYBOOK</p><h2>{{ t.tipsTitle }}</h2><div class="tips-grid">{% for tip in t.tips %}<article><span class="eyebrow">{{ loop.index | pad }}</span><h3>{{ tip[0] }}</h3><p>{{ tip[1] }}</p></article>{% endfor %}</div><h3>{{ t.convertTitle }}</h3>{% set prompt = {id:'convert-json',label:'TEXT → JSON',text:t.convertPrompt} %}{% include 'prompt.njk' %}</div></details></section>
 </div>

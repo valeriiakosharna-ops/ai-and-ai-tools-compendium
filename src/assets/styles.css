@@ -2413,6 +2413,75 @@ figure {
 }
 
 /* Owner-provided identity and reference images. */
+.image-task {
+  padding: 24px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  margin-bottom: 28px;
+}
+.tool-mark {
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+.tool-mark img,
+.tool-logo-inline,
+.tool-strip-item img {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.tool-chips a,
+table th a,
+.tool-strip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.image-task h3 {
+  margin-top: 0;
+}
+.image-task .steps {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.image-slot figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.image-slot figcaption a {
+  font-size: 11px;
+  font-weight: 650;
+  padding-block: 5px;
+  color: var(--deep-blue);
+}
+.analysis-disclosure {
+  margin-top: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+}
+.analysis-disclosure > summary {
+  padding: 22px;
+  font-size: 16px;
+}
+.analysis-disclosure small {
+  display: block;
+  margin-top: 7px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.analysis-body {
+  padding: 0 22px 24px;
+}
+.analysis-body .metrics-panel {
+  margin-top: 0;
+}
+.analysis-body > h2 {
+  margin-top: 16px;
+}
 .brand-logo {
   flex-shrink: 0;
   object-fit: contain;

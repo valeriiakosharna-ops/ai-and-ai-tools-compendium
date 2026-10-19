@@ -12,7 +12,7 @@
     <div class="art-note">{{ t.routeNote }}</div><span class="art-corner">{{ arrow() }}</span>
   </div>
 </section>
-<div class="tool-strip"><div class="container"><span class="eyebrow">{{ t.toolkit }}</span><div>{% for tool in view.taxonomy.tools %}<span>{{ tool.name }}</span>{% endfor %}</div></div></div>
+<div class="tool-strip"><div class="container"><span class="eyebrow">{{ t.toolkit }}</span><div>{% for tool in view.taxonomy.tools %}<span class="tool-strip-item"><img src="{{ tool.logo | url }}" width="20" height="20" alt="">{{ tool.name }}</span>{% endfor %}</div></div></div>
 <section id="guide" class="container section">
   <div class="section-heading"><div><p class="eyebrow">{{ t.guide }}</p><h2>{{ t.guideTitle }}</h2></div><p>{{ t.guideText }}</p></div>
   <div class="module-grid">

@@ -87,6 +87,10 @@ try {
     checks++;
     await page.goto(`${base}${lang}/taxonomy/`);
     await page.locator(".tool-controls").waitFor({ state: "visible" });
+    assert.equal(await page.locator(".tool-mark img").count(), 7);
+    for (const logo of await page.locator(".tool-mark img").all())
+      await logo.evaluate((img) => img.decode());
+    checks++;
     await page.locator('[data-filter="coding"]').click();
     assert.equal(await page.locator(".tool-card:visible").count(), 3);
     await page.locator("#tool-search").fill("Copilot");
@@ -105,6 +109,15 @@ try {
     await page.goto(`${base}${lang}/image-prompts/`);
     assert.equal(await page.locator("details[open]").count(), 0);
     assert.equal(await page.locator(".prompt-disclosure").count(), 4);
+    assert.equal(await page.locator(".analysis-disclosure").count(), 3);
+    assert.equal(await page.locator(".metrics-panel:visible").count(), 0);
+    assert.equal(await page.locator(".tips-grid:visible").count(), 0);
+    assert.equal(await page.locator(".image-slot a[download]").count(), 3);
+    await page.locator("#mercedes-analysis > summary").click();
+    assert.equal(await page.locator(".metrics-panel:visible").count(), 1);
+    await page.locator("#mercedes-analysis > summary").click();
+    assert.equal(await page.locator(".metrics-panel:visible").count(), 0);
+    checks++;
     assert.equal(await page.locator(".image-placeholder").count(), 0);
     const galleryImages = page.locator(".image-slot img");
     assert.equal(await galleryImages.count(), 5);
@@ -131,6 +144,27 @@ try {
     checks += 4;
     await page.goto(`${base}${lang}/practice/`);
     await page.locator(".progress-panel").waitFor({ state: "visible" });
+    assert.equal(
+      await page.locator("#practice-progress").getAttribute("max"),
+      "6",
+    );
+    await page.locator('[data-complete-exercise="copilot"]').check();
+    await page.reload();
+    assert.equal(
+      await page.locator('[data-complete-exercise="copilot"]').isChecked(),
+      true,
+    );
+    const starterHref = await page
+      .locator("#copilot .materials a")
+      .getAttribute("href");
+    const starterPage = await context.newPage();
+    await starterPage.goto(new URL(starterHref, page.url()).href);
+    await starterPage.locator("#reserve").click();
+    assert.ok(
+      (await starterPage.locator("#availability").textContent()).includes("20"),
+    );
+    await starterPage.close();
+    checks++;
     await page.locator('[data-complete-exercise="plan"]').check();
     await page.reload();
     assert.equal(
@@ -247,6 +281,9 @@ try {
     .locator("summary")
     .click();
   assert.equal(await staticPage.locator("#mercedes-text").isVisible(), true);
+  assert.equal(await staticPage.locator(".metrics-panel:visible").count(), 0);
+  await staticPage.locator("#mercedes-analysis > summary").click();
+  assert.equal(await staticPage.locator(".metrics-panel:visible").count(), 1);
   checks++;
   await staticPage.goto(`${base}en/taxonomy/`);
   assert.equal(await staticPage.locator(".tool-card").count(), 7);
@@ -287,9 +324,9 @@ try {
     fullPage: true,
   });
   await capture.goto(`${base}uk/image-prompts/`);
-  for (const image of await capture.locator('.image-slot img').all()) {
+  for (const image of await capture.locator(".image-slot img").all()) {
     await image.scrollIntoViewIfNeeded();
-    await image.evaluate(img => img.decode());
+    await image.evaluate((img) => img.decode());
   }
   await capture.evaluate(() => scrollTo(0, 0));
   await capture.screenshot({

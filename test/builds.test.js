@@ -22,9 +22,17 @@ const walk = async (dir) =>
       ),
     )
   ).flat();
+const sitePages = async (root) =>
+  (await walk(root)).filter(
+    (file) =>
+      file.endsWith(".html") &&
+      !path.relative(root, file).startsWith(`assets${path.sep}`),
+  );
 async function linksResolve(root, prefix) {
-  for (const file of (await walk(root)).filter((file) =>
-    file.endsWith(".html"),
+  for (const file of (await walk(root)).filter(
+    (file) =>
+      file.endsWith(".html") &&
+      !path.relative(root, file).startsWith(`assets${path.sep}`),
   )) {
     const html = await readFile(file, "utf8");
     const url = new URL(
@@ -57,7 +65,7 @@ test("separate language builds and custom single/bilingual builds have complete 
   for (const lang of ["uk", "en"]) {
     run(["--language", lang]);
     const root = `dist/universal-${lang}`;
-    const pages = (await walk(root)).filter((file) => file.endsWith(".html"));
+    const pages = await sitePages(root);
     assert.equal(pages.length, 5);
     const html = await readFile(`${root}/index.html`, "utf8");
     assert.ok(html.includes(`<html lang="${lang}"`));
@@ -71,21 +79,13 @@ test("separate language builds and custom single/bilingual builds have complete 
     ...process.env,
     SITE_PATH_PREFIX: "/custom/guide/",
   });
-  assert.equal(
-    (await walk("dist/starter")).filter((file) => file.endsWith(".html"))
-      .length,
-    7,
-  );
+  assert.equal((await sitePages("dist/starter")).length, 7);
   await linksResolve("dist/starter", "/custom/guide/");
   run(["--edition", "starter", "--language", "en"], {
     ...process.env,
     SITE_PATH_PREFIX: "/custom/guide/",
   });
-  assert.equal(
-    (await walk("dist/starter-en")).filter((file) => file.endsWith(".html"))
-      .length,
-    3,
-  );
+  assert.equal((await sitePages("dist/starter-en")).length, 3);
   await linksResolve("dist/starter-en", "/custom/guide/");
 });
 
@@ -165,10 +165,7 @@ test("an added edition can reorder/remove lessons, select one image example, and
     );
     assert.equal(result.status, 0, result.stdout + result.stderr);
     const root = path.join(temporary, "dist/workshop-en");
-    assert.equal(
-      (await walk(root)).filter((file) => file.endsWith(".html")).length,
-      3,
-    );
+    assert.equal((await sitePages(root)).length, 3);
     const home = await readFile(path.join(root, "index.html"), "utf8");
     assert.doesNotMatch(home, /href="[^"]*taxonomy\//);
     const practice = await readFile(

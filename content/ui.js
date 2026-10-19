@@ -33,11 +33,11 @@ export default {
       taxonomy:
         "Чотири способи взаємодії, можливості інструментів, порівняння та вибір за задачею.",
       practice:
-        "П’ять вправ: плануйте, додавайте контекст, перевіряйте джерела й аргументи.",
+        "Шість вправ: плануйте, перевіряйте джерела й аргументи та змінюйте код із GitHub Copilot.",
       simulators:
         "Дослідіть токени, контекстний бюджет, векторний пошук і RAG у тренажерах.",
       "image-prompts":
-        "Два приклади, текст і JSON, точний підрахунок токенів та поради для генерації.",
+        "Відтворіть кадр за референсами, а потім відкрийте промпти, розбір і поради.",
     },
     route: ["Чітка задача", "Влучний інструмент", "Перевірений результат"],
     routeNote: "Ви визначаєте мету. ШІ допомагає пройти шлях.",
@@ -176,9 +176,27 @@ export default {
     noSources: "Джерел немає.",
     ragResult: "Навчальна відповідь",
     labSources: "Дізнатися більше",
-    imagesHero: "Одна ідея. Два формати промпту.",
+    imagesHero: "Спробуйте відтворити зображення.",
     imagesIntro:
-      "Порівняйте звичайний англійський текст і JSON на двох прикладах. Розкрийте інструкції, дослідіть їхню структуру та обсяг.",
+      "Спочатку візьміть референси, розгляньте цільовий кадр і спробуйте отримати схожий результат із власним промптом. Лише після спроби відкрийте готові промпти та їхній розбір.",
+    imageExerciseLabel: "ВІДТВОРЕННЯ ЗА РЕФЕРЕНСАМИ",
+    imageExerciseTitle: "Спочатку — ваша спроба",
+    imageExerciseSteps: [
+      "Завантажте вихідні зображення нижче. Розгляньте результат: хто в кадрі, яка композиція, масштаб, середовище та освітлення?",
+      "Оберіть генератор, який підтримує референси, і додайте вихідні зображення. Самостійно напишіть промпт для відтворення кадру, не відкриваючи підказки.",
+      "Зробіть генерацію й порівняйте її з цільовим кадром. За потреби уточніть свій запит. Збережіть промпт, результат, модель і доступні налаштування.",
+      "Після власної спроби відкрийте текстовий та JSON-промпти, а потім розбір. Знайдіть, які деталі ви врахували та що хотіли б змінити у наступній спробі.",
+    ],
+    downloadReference: "Завантажити референс",
+    revealAnalysis: "Розкрити розбір і порівняння промптів",
+    analysisAfterAttempt: "Відкрийте після власної спроби",
+    revealTips: "Поради після першої спроби",
+    compareYourAttempt: "Зіставте зі своєю спробою",
+    imageReflection: [
+      "Які вимоги до композиції, масштабу й референсів були у вашому промпті, а які з’явилися лише в готовому прикладі?",
+      "Чи допомогла структура JSON помітити пропущені деталі? Не прирівнюйте більшу кількість токенів до кращої якості.",
+      "Змініть одну вимогу у своєму промпті й повторіть генерацію з тими самими налаштуваннями. Що саме змінилося?",
+    ],
     references: "Вихідні зображення",
     result: "Результат генерації",
     pending: "Зображення буде додано",
@@ -255,7 +273,7 @@ export default {
     navHint: "ОБЕРІТЬ РОЗДІЛ",
     pageContents: "На цій сторінці",
     formatNote:
-      "Промпти спочатку приховані. Розкриття працює й без JavaScript.",
+      "Готові промпти, розбір і поради приховані. Відкрийте їх після власної спроби; це працює й без JavaScript.",
     runtime: {
       shown: "Знайдено інструментів",
       completed: "Завершено вправ",
@@ -296,11 +314,11 @@ export default {
       taxonomy:
         "Four ways to work with AI, tool capabilities, comparisons, and choosing by task.",
       practice:
-        "Five exercises: plan, add context, check sources, and examine arguments.",
+        "Six exercises: plan, check sources and arguments, and edit code with GitHub Copilot.",
       simulators:
         "Explore tokens, context budgets, vector search, and RAG in interactive trainers.",
       "image-prompts":
-        "Two examples, text and JSON, exact token counts, and practical generation tips.",
+        "Recreate a scene from references, then reveal the prompts, analysis, and practical tips.",
     },
     route: ["A clear task", "The right tool", "A checked result"],
     routeNote: "You set the destination. AI helps you get there.",
@@ -432,9 +450,27 @@ export default {
     noSources: "No sources selected.",
     ragResult: "Teaching answer",
     labSources: "Learn more",
-    imagesHero: "One idea. Two prompt formats.",
+    imagesHero: "Try recreating the image.",
     imagesIntro:
-      "Compare plain English and JSON through two examples. Reveal the full instructions and explore their structure and size.",
+      "First take the reference images, study the target scene, and try to recreate it with your own prompt. After your attempt, reveal the supplied prompts and their analysis.",
+    imageExerciseLabel: "RECREATE FROM REFERENCES",
+    imageExerciseTitle: "Your attempt comes first",
+    imageExerciseSteps: [
+      "Download the reference images below. Study the target: who is in the shot, and what are its composition, scale, setting, and lighting?",
+      "Choose an image generator that supports references and attach the source images. Write your own prompt to recreate the target without opening the hints.",
+      "Generate an image and compare it with the target. Refine your request if needed. Save your prompt, result, model, and available settings.",
+      "After your own attempt, open the plain-text and JSON prompts, then the analysis. Identify what you included and what you would change in your next attempt.",
+    ],
+    downloadReference: "Download reference",
+    revealAnalysis: "Reveal prompt analysis & comparison",
+    analysisAfterAttempt: "Open after your own attempt",
+    revealTips: "Tips after your first attempt",
+    compareYourAttempt: "Compare with your own attempt",
+    imageReflection: [
+      "Which composition, scale, and reference requirements were in your prompt, and which did you only notice in the supplied example?",
+      "Did the JSON structure help you spot missing details? More tokens do not automatically mean better image quality.",
+      "Change one requirement in your prompt and generate again with the same settings. What changed?",
+    ],
     references: "Reference images",
     result: "Generation result",
     pending: "Image to be added",
@@ -511,7 +547,7 @@ export default {
     navHint: "EXPLORE THE GUIDE",
     pageContents: "On this page",
     formatNote:
-      "Prompts start collapsed. They can also be opened without JavaScript.",
+      "The supplied prompts, analysis, and tips start collapsed. Open them after your own attempt; this also works without JavaScript.",
     runtime: {
       shown: "Tools found",
       completed: "Exercises completed",
