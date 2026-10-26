@@ -129,14 +129,14 @@ test("catalogue preserves four approaches and adds Copilot throughout the comple
   }
 });
 
-test("all six exercises, source materials, reflection prompts and agent demo are preserved", async () => {
+test("all seven exercises, source materials, reflection prompts and the project walkthrough are present", async () => {
   for (const lang of ["uk", "en"]) {
     const data = JSON.parse(
       await readFile(`content/${lang}/practice.json`, "utf8"),
     );
     const html = pages.get(`${lang}/practice/index.html`);
-    assert.equal(data.exercises.length, 6);
-    assert.equal((html.match(/data-complete-exercise=/g) || []).length, 6);
+    assert.equal(data.exercises.length, 7);
+    assert.equal((html.match(/data-complete-exercise=/g) || []).length, 7);
     for (const exercise of data.exercises) {
       for (const text of [
         exercise.title,
@@ -150,7 +150,10 @@ test("all six exercises, source materials, reflection prompts and agent demo are
         assert.ok(decode(html).includes(prompt.text));
     }
     assert.ok(html.includes('id="agent-demo"'));
-    assert.ok(html.includes('sandbox=""'));
+    assert.ok(html.includes('class="agent-pipeline"'));
+    assert.equal((html.match(/data-agent-stage=/g) || []).length, 5);
+    assert.ok(html.includes('id="claude-track-web"'));
+    assert.ok(html.includes('id="claude-track-cli"'));
     const folder = lang === "en" ? "en/" : "";
     const brief = await readFile(
       `${output}/assets/materials/${folder}event-brief.txt`,

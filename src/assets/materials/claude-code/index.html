@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>AI toolkit — Claude Code workshop</title>
+    <style>
+      body {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 24px;
+        font: 16px/1.6 system-ui;
+        color: #302a40;
+      }
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px;
+        font: inherit;
+        border: 1px solid #937c8a;
+        border-radius: 8px;
+      }
+      #tools {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+      article {
+        padding: 20px;
+        border: 1px solid #81d0f4;
+        border-radius: 12px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      [hidden] {
+        display: none !important;
+      }
+    </style>
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <h1>AI toolkit</h1>
+    <p>
+      A local learning project. No accounts or API keys are used by this page.
+    </p>
+    <label for="search">Find a tool</label>
+    <input id="search" type="search" placeholder="Try Gemini or code" />
+    <p id="status" role="status" aria-live="polite">Tools found: 4</p>
+    <div id="tools">
+      <article data-tool="chatgpt">
+        <h2>ChatGPT</h2>
+        <p>Writing and learning</p>
+      </article>
+      <article data-tool="gemini">
+        <h2>Gemini</h2>
+        <p>Research and Google services</p>
+      </article>
+      <article data-tool="claude">
+        <h2>Claude</h2>
+        <p>Documents and reasoning</p>
+      </article>
+      <article data-tool="copilot">
+        <h2>GitHub Copilot</h2>
+        <p>Code and tests</p>
+      </article>
+    </div>
+    <p id="empty" hidden>No tools found.</p>
+  </body>
+</html>

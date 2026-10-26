@@ -2,7 +2,7 @@
 
 **[Українська версія](https://valeriiakosharna-ops.github.io/ai-and-ai-tools-compendium/uk/)** · **[English version](https://valeriiakosharna-ops.github.io/ai-and-ai-tools-compendium/en/)**
 
-Практичний мінісайт про інструменти ШІ: каталог інструментів, вправи зокрема з GitHub Copilot, інтерактивні тренажери та візуальні промпти з референсами, результатами й порівнянням тексту та JSON.
+Практичний мінісайт про інструменти ШІ: каталог інструментів, вправи з GitHub Copilot і Claude Code (web/CLI), інтерактивні тренажери та візуальні промпти з референсами, результатами й порівнянням тексту та JSON.
 
 ## Локальний запуск
 

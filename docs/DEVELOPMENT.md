@@ -5,7 +5,7 @@ A reusable static mini-site in **Ukrainian and English**, adapted from [AI Tools
 ## What is included
 
 - Four approaches to AI and seven detailed tools: ChatGPT, Gemini, Claude, NotebookLM, Claude Code, Codex, and **GitHub Copilot**. Search, category filters, comparison, and task-based recommendations.
-- Six practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks. An optional HTML agent simulation checks a real in-memory change without calling an agent.
+- Seven practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks. An interactive project walkthrough shows files, planning, a diff, working search, and seven computed checks without calling an AI service.
 - Four interactive trainers: real `cl100k_base` tokenisation, an illustrative context budget, keyword versus manually positioned vector retrieval, and RAG using fictional documents and predefined answers.
 - Two image examples: **Mercedes / Monaco** with two reference slots and one result; **Oxford** with one reference slot and one result. Start by downloading references and recreating the target with your own prompt. The supplied prompts, token comparisons, analysis, and tips are collapsed until opened.
 - Shared templates, fully localised learning content and runtime messages, language switching on the same page, mobile layouts, and meaningful content available without JavaScript.
@@ -87,7 +87,7 @@ Merge this entry alongside `universal` and `starter`; do not replace the entire 
 
 - `sections`: select and order `taxonomy`, `practice`, `simulators`, `image-prompts`. A home page is always added.
 - `tools`: `"all"` or an ordered list of tool IDs. The seven IDs are in `content/uk/taxonomy.json` and matched in the English file.
-- `exercises`: `"all"` or IDs `plan`, `context`, `sources`, `arguments`, `compare`, `copilot`.
+- `exercises`: `"all"` or IDs `plan`, `context`, `sources`, `arguments`, `compare`, `copilot`, `claude-code`.
 - `imageExamples`: an ordered selection of `mercedes`, `oxford`.
 - Use `[]` for content belonging to a disabled section. An enabled section must have content.
 
@@ -150,3 +150,11 @@ SITE_PATH_PREFIX=/my-guide/ npm run build:edition -- --edition starter --languag
 Keep the prefix consistent with the deployment directory. It applies to navigation, alternate-language links, scripts, images, styles, downloads, and lazy tokenizer imports.
 
 Development commands do not push commits or publish the site. Core source attribution and the inspected commit are recorded in [`SOURCE.md`](../SOURCE.md).
+
+## Claude Code workshop
+
+The seventh exercise uses `src/assets/materials/claude-code/`: `index.html`, `app.mjs`, `verify.mjs`, and `serve.mjs`. Every build packages these files into a downloadable ZIP using the pinned `fflate` development dependency. Learners can upload the extracted files to a training GitHub repository for Claude Code on the web, or work in the local folder with the CLI. The guide links to the official quickstart and web documentation. Access and environment availability depend on the learner’s Claude Code account.
+
+The starter deliberately leaves `filterTools` unfinished: `node verify.mjs` reports **2/7 and exit code 1**. Completing only that function should give **7/7 and exit code 0**. `node serve.mjs` serves the local preview on port 4173. No dependencies need installing in the downloaded project. The archive and both expected outcomes are exercised by repository tests; no live Claude Code service is invoked.
+
+The browser walkthrough uses the self-contained function in `src/assets/agent-model.js` and the same starting data. It computes its checks from actual results and labels them as browser-model checks, rather than terminal output.
