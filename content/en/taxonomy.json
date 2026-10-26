@@ -15,7 +15,7 @@
       "number": "02",
       "icon": "book",
       "title": "Research & knowledge synthesis",
-      "tools": "NotebookLM",
+      "tools": "Gemini Notebook",
       "description": "Find connections between your documents, notes, and reports, then draw conclusions from them.",
       "analogy": "Think of an assistant who has read your folder of documents and helps you find what matters.",
       "example": "“Compare these three reports: summarise their themes, shared conclusions, and differences. Cite the relevant passages and flag missing evidence.”"
@@ -147,13 +147,13 @@
     },
     {
       "id": "notebooklm",
-      "name": "NotebookLM",
+      "name": "Gemini Notebook",
       "maker": "GOOGLE",
       "category": "research",
       "type": "Research with your sources",
       "summary": "Add documents to get answers, comparisons, and learning materials grounded in them.",
       "analogy": "A research assistant for a specific folder of sources, rather than a general conversation.",
-      "description": "Add sources to Google's NotebookLM, ask questions, analyse the content, and create study materials. Distinguish this source-focused product from the general Gemini chat.",
+      "description": "Add sources to Google's Gemini Notebook, ask questions, analyse the content, and create study materials. Distinguish this source-focused product from the general Gemini chat.",
       "example": "Add notes, research papers, and a presentation. Compare definitions, prepare self-test questions, or generate an Audio Overview.",
       "capabilities": [
         "Ask questions grounded in your sources",
@@ -167,11 +167,11 @@
       "result": "Information synthesis and study materials",
       "links": [
         {
-          "label": "NotebookLM",
+          "label": "Gemini Notebook",
           "url": "https://notebooklm.google.com/"
         },
         {
-          "label": "NotebookLM Help",
+          "label": "Gemini Notebook Help",
           "url": "https://support.google.com/notebooklm/"
         }
       ],

@@ -1,5 +1,5 @@
 TRAINING SOURCE 1. INITIAL EVENT BRIEF
-This is a fictional document for the NotebookLM exercise only.
+This is a fictional document for the Gemini Notebook exercise only.
 
 You are organising a volunteer meeting for your community. You have 7 days to prepare, two helpers, and an initial budget of UAH 3,000.
 
