@@ -68,18 +68,21 @@
       "prompts": [
         {
           "id": "context-start",
-          "label": "Step 1 / Start small",
-          "text": "Help me think of a volunteer event for my community."
+          "label": "First prompt",
+          "text": "Help me think of a volunteer event for my community.",
+          "step": 2
         },
         {
           "id": "context-constraints",
-          "label": "Step 2 / Add constraints in the same chat",
-          "text": "Clarification: the event must be free, last no more than two hours, work for 15–20 people, and require no special equipment. Suggest the three best ideas and explain which one you recommend."
+          "label": "Clarification in the same chat",
+          "text": "Clarification: the event must be free, last no more than two hours, work for 15–20 people, and require no special equipment. Suggest the three best ideas and explain which one you recommend.",
+          "step": 3
         },
         {
           "id": "context-plan",
-          "label": "Step 3 / Ask for a concrete plan",
-          "text": "Choose the best idea and create an implementation plan that respects all previous constraints. List what I need to verify before organising the event."
+          "label": "A concrete plan with all constraints",
+          "text": "Choose the best idea and create an implementation plan that respects all previous constraints. List what I need to verify before organising the event.",
+          "step": 4
         }
       ],
       "result": "An idea adapted to your situation and a plan to carry it out. Compare its specificity with the first answer.",
@@ -91,7 +94,8 @@
       "reflection": [
         "Which clarification changed the result most?",
         "At which step did you get an answer you could act on?"
-      ]
+      ],
+      "inlinePrompts": true
     },
     {
       "id": "sources",
@@ -284,6 +288,90 @@
       "reflection": [
         "Were the expected behaviour and boundaries specific enough in your request?",
         "What might you have missed if you accepted Copilot’s suggestion without testing it?"
+      ]
+    },
+    {
+      "id": "claude-code",
+      "number": "07",
+      "tool": "Claude Code",
+      "icon": "code",
+      "minutes": "15–25 min",
+      "skill": "Complete a task with Claude Code",
+      "title": "Add catalogue search: Claude Code web or CLI",
+      "intro": "One task and one English-language starter project for two environments. Ask Claude Code to inspect files, change a function, and run checks. The agent requires Claude Code access and appropriate permissions; the sample website itself uses no API keys.",
+      "tools": [
+        {
+          "name": "Claude Code",
+          "url": "https://claude.ai/code"
+        },
+        {
+          "name": "Setup and quickstart",
+          "url": "https://code.claude.com/docs/en/quickstart"
+        },
+        {
+          "name": "Claude Code on the web",
+          "url": "https://code.claude.com/docs/en/claude-code-on-the-web"
+        }
+      ],
+      "steps": [
+        "Download the ZIP below and extract it into a separate ai-toolkit-practice folder. It contains index.html, app.mjs, verify.mjs, and serve.mjs. Search currently returns every card; the initial checks intentionally report 2/7.",
+        "Choose one route below: a web session with a training GitHub repository, or the CLI in your local folder. The checks require Node.js 22+.",
+        "Send the inspection and planning prompt first, then the implementation prompt. Review the diff: the expected change is filterTools in app.mjs.",
+        "Ask it to run node verify.mjs. Expect 7/7 and exit code 0. In a browser, test Gemini, reasoning, a query with no matches, and clearing the field. Save the result and explanation."
+      ],
+      "materials": [
+        {
+          "label": "Download the Claude Code project · ZIP",
+          "path": "/assets/materials/claude-code-practice.zip"
+        }
+      ],
+      "tracks": [
+        {
+          "id": "web",
+          "title": "Route A · Claude Code on the web",
+          "intro": "Complete the task in a cloud session with repository access. Check web-mode availability and permissions in your account.",
+          "steps": [
+            "Create a separate training repository on GitHub and upload the four extracted files to its root. Upload the files, rather than the ZIP.",
+            "Open claude.ai/code, connect GitHub using the interface, and select this repository and branch. Grant access to the training repository you need.",
+            "Start a session in an environment with Node.js 22+ and use the shared prompts below. Ask for the initial check results, an implementation, and a second check run.",
+            "Review the changed files, actual command results, and diff before accepting changes or creating a PR. If a preview is supported, test the page there; otherwise obtain the changed files and check them locally with node serve.mjs."
+          ]
+        },
+        {
+          "id": "cli",
+          "title": "Route B · Claude Code in the CLI",
+          "intro": "Complete the same task in your local folder. Install Claude Code using its official setup instructions, sign in, and make sure Node.js 22+ is available.",
+          "steps": [
+            "Open a terminal in the ai-toolkit-practice folder containing the extracted files.",
+            "Run node verify.mjs to see the initial 2/7. Exit code 1 is expected here: filtering is not implemented yet.",
+            "Run claude and send the shared prompts below. Review proposed edits and commands as it works.",
+            "After the change, rerun node verify.mjs. Start node serve.mjs and open the address printed in the terminal to test the behaviour manually. Ctrl+C stops the local server."
+          ],
+          "commands": "cd ai-toolkit-practice\nnode --version\nclaude"
+        }
+      ],
+      "prompts": [
+        {
+          "id": "claude-code-plan",
+          "label": "Shared prompt 1 / Inspect and plan",
+          "text": "Inspect index.html, app.mjs, verify.mjs, and serve.mjs in this training project. Explain why search currently returns every card. Run node verify.mjs, report its actual results, and suggest a short fix plan. Do not change files yet."
+        },
+        {
+          "id": "claude-code-implement",
+          "label": "Shared prompt 2 / Implement and check",
+          "text": "Implement filterTools in app.mjs: match a substring of name or description, ignoring case and leading or trailing whitespace. An empty query should return all tools; an unknown query should return an empty list. Preserve the original array, DOM handlers, index.html, verify.mjs, and serve.mjs. Add no dependencies.\n\nRun node verify.mjs and report the actual 7/7 result and exit code. If a check fails, fix the implementation while preserving the checks. Show the diff and explain how to test search in a browser."
+        }
+      ],
+      "result": "Working search in the real training project, a small diff in app.mjs, and an actual 7/7 result. The web route leaves changes on the selected branch for review; the CLI edits your local folder.",
+      "checks": [
+        "Gemini and GEMINI each match one card; reasoning matches Claude. Surrounding whitespace does not affect results.",
+        "An unknown query shows an empty state. Clearing the field restores all four cards.",
+        "node verify.mjs actually ran: 7/7 and exit code 0. The checks and source data are unchanged.",
+        "Review the diff to confirm that only the intended function changed and no dependencies were added."
+      ],
+      "reflection": [
+        "How did file access and command execution work in your chosen web or CLI environment?",
+        "What check would you add if the catalogue supported other languages or more fields?"
       ]
     }
   ]

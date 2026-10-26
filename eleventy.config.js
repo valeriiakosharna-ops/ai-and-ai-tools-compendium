@@ -1,4 +1,5 @@
 import { build } from "esbuild";
+import { buildPracticeArchive } from "./lib/practice-archive.js";
 export default function (config) {
   const segments = (process.env.SITE_PATH_PREFIX || "/")
     .split("/")
@@ -10,10 +11,13 @@ export default function (config) {
   config.watchIgnores.add(".cache/**");
   config.addPassthroughCopy({ "src/assets": "assets" });
   config.addPassthroughCopy({
+    ".cache/claude-code-practice.zip":
+      "assets/materials/claude-code-practice.zip",
     ".cache/tokenizer.js": "assets/tokenizer.js",
     "node_modules/gpt-tokenizer/LICENSE": "assets/tokenizer-LICENSE.txt",
   });
   config.on("eleventy.before", async () => {
+    buildPracticeArchive();
     await build({
       entryPoints: ["lib/tokenizer-entry.js"],
       outfile: ".cache/tokenizer.js",

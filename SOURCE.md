@@ -5,7 +5,7 @@ The core learning material was adapted from the repository supplied by the proje
 - https://github.com/valeriiakosharna-ops/ai-tools-for-everyday-routine
 - Inspected source commit: `7ef918ecdd086f6f1c4e0569c449a423a61e920f`
 
-Preserved: four approaches to AI, the six original tool profiles and official links, the five practical exercises and training documents, and the token/context/vector/RAG teaching models. Added: GitHub Copilot, a complete English localisation, a shared edition system, two new image examples, and a hands-on GitHub Copilot exercise.
+Preserved: four approaches to AI, the six original tool profiles and official links, the five practical exercises and training documents, and the token/context/vector/RAG teaching models. Added: GitHub Copilot, a complete English localisation, a shared edition system, two new image examples, and hands-on GitHub Copilot and Claude Code web/CLI exercises.
 
 The former Karazin image gallery, its image assets, and organisation-specific branding were replaced with the owner-provided branding and reference/result images for Mercedes/Monaco and Oxford.
 

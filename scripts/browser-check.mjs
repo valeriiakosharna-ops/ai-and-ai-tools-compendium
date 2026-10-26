@@ -1,6 +1,18 @@
 import { chromium } from "playwright-core";
 import { createServer } from "node:http";
-import { readFile, stat, mkdir } from "node:fs/promises";
+import {
+  readFile,
+  stat,
+  mkdir,
+  mkdtemp,
+  cp,
+  writeFile,
+  rm,
+} from "node:fs/promises";
+import { spawn } from "node:child_process";
+import os from "node:os";
+import { filterTools as finishedFilter } from "../src/assets/agent-model.js";
+import { filterTools as starterFilter } from "../src/assets/materials/claude-code/app.mjs";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import assert from "node:assert/strict";
@@ -106,6 +118,12 @@ try {
     );
     checks += 5;
     await noOverflow();
+    assert.ok(
+      (await page.locator(".practice-cta a").getAttribute("href")).endsWith(
+        `/${lang}/practice/`,
+      ),
+    );
+    checks++;
     await page.goto(`${base}${lang}/image-prompts/`);
     assert.equal(await page.locator("details[open]").count(), 0);
     assert.equal(await page.locator(".prompt-disclosure").count(), 4);
@@ -146,7 +164,7 @@ try {
     await page.locator(".progress-panel").waitFor({ state: "visible" });
     assert.equal(
       await page.locator("#practice-progress").getAttribute("max"),
-      "6",
+      "7",
     );
     await page.locator('[data-complete-exercise="copilot"]').check();
     await page.reload();
@@ -176,11 +194,53 @@ try {
       await page.locator("#practice-progress").getAttribute("value"),
       "0",
     );
-    await page.locator("#agent-apply").click();
+    const geminiSteps = page.locator("#context > ol.steps > li");
+    assert.equal(await geminiSteps.count(), 4);
+    assert.equal(await geminiSteps.nth(1).locator("#context-start").count(), 1);
+    assert.equal(
+      await geminiSteps.nth(2).locator("#context-constraints").count(),
+      1,
+    );
+    assert.equal(await geminiSteps.nth(3).locator("#context-plan").count(), 1);
+    await page.locator("#claude-track-web > summary").click();
+    assert.equal(await page.locator("#claude-track-web ol").isVisible(), true);
+    await page.locator("#claude-track-cli > summary").click();
+    assert.equal(await page.locator("#claude-track-cli pre").isVisible(), true);
+    const projectHref = await page
+      .locator("#claude-code .materials a")
+      .getAttribute("href");
+    const archive = await context.request.get(
+      new URL(projectHref, page.url()).href,
+    );
+    assert.equal(archive.status(), 200);
+    assert.equal((await archive.body()).subarray(0, 2).toString(), "PK");
+    checks++;
     await page.locator("#agent-validate").click();
     assert.equal(
       await page.locator('#agent-checks [data-passed="true"]').count(),
-      4,
+      2,
+    );
+    await page.locator("#agent-apply").click();
+    assert.equal(await page.locator("#agent-result-cards article").count(), 1);
+    await page.locator("#agent-search").fill("xyz-not-found");
+    assert.equal(await page.locator("#agent-empty").isVisible(), true);
+    await page.locator("#agent-search").fill("");
+    assert.equal(await page.locator("#agent-result-cards article").count(), 4);
+    assert.ok(
+      await page.locator("#agent-preview").evaluate((container) => {
+        const last = container.querySelector(
+          "#agent-result-cards article:last-child",
+        );
+        return (
+          last.getBoundingClientRect().bottom <=
+          container.getBoundingClientRect().bottom
+        );
+      }),
+    );
+    await page.locator("#agent-validate").click();
+    assert.equal(
+      await page.locator('#agent-checks [data-passed="true"]').count(),
+      7,
     );
     checks += 3;
     await page.goto(`${base}${lang}/simulators/`);
@@ -242,6 +302,7 @@ try {
   await page.goto(`${base}editions/starter/en/taxonomy/`);
   assert.equal(await page.locator(".tool-card").count(), 3);
   assert.equal(await page.locator("#main-nav a").count(), 3);
+  assert.equal(await page.locator(".practice-cta").count(), 0);
   checks += 2;
   await page.goto(`${base}en/image-prompts/`);
   await page.evaluate(() => {
@@ -271,6 +332,79 @@ try {
   await page.locator("#token-result").waitFor({ state: "visible" });
   checks++;
   await context.close();
+  const workshop = await mkdtemp(path.join(os.tmpdir(), "claude-browser-"));
+  let workshopServer;
+  let workshopPage;
+  try {
+    await cp("src/assets/materials/claude-code", workshop, { recursive: true });
+    const file = path.join(workshop, "app.mjs");
+    await writeFile(
+      file,
+      (await readFile(file, "utf8")).replace(
+        starterFilter.toString(),
+        finishedFilter.toString(),
+      ),
+    );
+    workshopServer = spawn(process.execPath, ["serve.mjs"], {
+      cwd: workshop,
+      env: { ...process.env, WORKSHOP_PORT: "0" },
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    const address = await new Promise((resolve, reject) => {
+      const timeout = setTimeout(
+        () => reject(new Error("Workshop server did not start")),
+        10000,
+      );
+      let output = "";
+      workshopServer.stdout.on("data", (chunk) => {
+        output += chunk;
+        const match = output.match(/http:\/\/127\.0\.0\.1:\d+/);
+        if (match) {
+          clearTimeout(timeout);
+          resolve(match[0]);
+        }
+      });
+      workshopServer.once("error", (error) => {
+        clearTimeout(timeout);
+        reject(error);
+      });
+      workshopServer.once("exit", (code) => {
+        clearTimeout(timeout);
+        reject(new Error(`Workshop exited: ${code}`));
+      });
+    });
+    workshopPage = await browser.newPage();
+    const workshopErrors = [];
+    workshopPage.on("pageerror", (error) => workshopErrors.push(error.message));
+    await workshopPage.goto(address);
+    await workshopPage.locator("#search").fill("GEMINI");
+    assert.equal(await workshopPage.locator("[data-tool]:visible").count(), 1);
+    await workshopPage.locator("#search").fill("reasoning");
+    assert.equal(
+      await workshopPage.locator('[data-tool="claude"]').isVisible(),
+      true,
+    );
+    await workshopPage.locator("#search").fill("xyz-not-found");
+    assert.equal(await workshopPage.locator("#empty").isVisible(), true);
+    await workshopPage.locator("#search").fill("");
+    assert.equal(await workshopPage.locator("[data-tool]:visible").count(), 4);
+    assert.deepEqual(workshopErrors, []);
+    checks += 4;
+  } finally {
+    await workshopPage?.close();
+    if (
+      workshopServer &&
+      workshopServer.exitCode === null &&
+      workshopServer.signalCode === null
+    ) {
+      const closed = new Promise((resolve) =>
+        workshopServer.once("close", resolve),
+      );
+      workshopServer.kill();
+      await closed;
+    }
+    await rm(workshop, { recursive: true, force: true });
+  }
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await noJs.newPage();
   await staticPage.goto(`${base}uk/image-prompts/`);
@@ -333,6 +467,29 @@ try {
     path: path.join(screenshots, "images-desktop.png"),
     fullPage: true,
   });
+  await capture.goto(`${base}uk/practice/#agent-demo`);
+  await capture.locator('[data-agent-stage="2"]').click();
+  await capture
+    .locator("#agent-demo")
+    .screenshot({
+      path: path.join(screenshots, "agent-diff-desktop.png"),
+      style: ".site-header,.skip{visibility:hidden!important}",
+    });
+  await capture.locator("#agent-apply").click();
+  await capture
+    .locator("#agent-demo")
+    .screenshot({
+      path: path.join(screenshots, "agent-preview-desktop.png"),
+      style: ".site-header,.skip{visibility:hidden!important}",
+    });
+  await capture.setViewportSize({ width: 375, height: 900 });
+  await capture.locator("#agent-validate").click();
+  await capture
+    .locator("#agent-demo")
+    .screenshot({
+      path: path.join(screenshots, "agent-mobile.png"),
+      style: ".site-header,.skip{visibility:hidden!important}",
+    });
   await capture.setViewportSize({ width: 375, height: 850 });
   await capture.goto(`${base}uk/`);
   await capture.screenshot({
