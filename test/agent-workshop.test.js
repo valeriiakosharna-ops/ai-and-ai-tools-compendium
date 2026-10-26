@@ -5,11 +5,8 @@ import { spawnSync } from "node:child_process";
 import path from "node:path";
 import os from "node:os";
 import { unzipSync } from "fflate";
-import { filterTools, checkSearch } from "../src/assets/agent-model.js";
-import {
-  filterTools as initialFilter,
-  tools,
-} from "../src/assets/materials/claude-code/app.mjs";
+import { filterTools } from "./fixtures/claude-search-solution.mjs";
+import { filterTools as initialFilter } from "../src/assets/materials/claude-code/app.mjs";
 import { workshopFiles } from "../lib/practice-archive.js";
 
 test("the downloadable workshop preserves the starter files and its honest failing baseline", async () => {
@@ -31,7 +28,7 @@ test("the downloadable workshop preserves the starter files and its honest faili
   assert.equal((baseline.stderr.match(/FAIL /g) || []).length, 5);
 });
 
-test("the teaching function passes the real workshop verifier after changing only the intended function", async () => {
+test("the test reference implementation passes the real workshop verifier after changing only the intended function", async () => {
   const temporary = await mkdtemp(path.join(os.tmpdir(), "claude-workshop-"));
   try {
     await cp("src/assets/materials/claude-code", temporary, {
@@ -58,21 +55,4 @@ test("the teaching function passes the real workshop verifier after changing onl
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }
-});
-
-test("the interactive walkthrough distinguishes the broken baseline from a working filter and detects mutation", () => {
-  assert.equal(
-    checkSearch(initialFilter, structuredClone(tools)).filter(Boolean).length,
-    2,
-  );
-  assert.ok(checkSearch(filterTools, structuredClone(tools)).every(Boolean));
-  assert.deepEqual(
-    filterTools(tools, "CODE").map((tool) => tool.id),
-    ["copilot"],
-  );
-  const mutated = checkSearch((items, query) => {
-    items[0].description += "!";
-    return filterTools(items, query);
-  }, structuredClone(tools));
-  assert.equal(mutated.at(-1), false);
 });

@@ -129,7 +129,7 @@ test("catalogue preserves four approaches and adds Copilot throughout the comple
   }
 });
 
-test("all seven exercises, source materials, reflection prompts and the project walkthrough are present", async () => {
+test("all seven exercises and source materials remain available without the removed agent demo", async () => {
   for (const lang of ["uk", "en"]) {
     const data = JSON.parse(
       await readFile(`content/${lang}/practice.json`, "utf8"),
@@ -149,9 +149,10 @@ test("all seven exercises, source materials, reflection prompts and the project 
       for (const prompt of exercise.prompts)
         assert.ok(decode(html).includes(prompt.text));
     }
-    assert.ok(html.includes('id="agent-demo"'));
-    assert.ok(html.includes('class="agent-pipeline"'));
-    assert.equal((html.match(/data-agent-stage=/g) || []).length, 5);
+    assert.doesNotMatch(
+      html,
+      /agent-demo|agent-pipeline|Дослідіть роботу агента|Explore how an agent works/,
+    );
     assert.ok(html.includes('id="claude-track-web"'));
     assert.ok(html.includes('id="claude-track-cli"'));
     const folder = lang === "en" ? "en/" : "";

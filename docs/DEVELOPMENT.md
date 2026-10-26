@@ -5,7 +5,7 @@ A reusable static mini-site in **Ukrainian and English**, adapted from [AI Tools
 ## What is included
 
 - Four approaches to AI and seven detailed tools: ChatGPT, Gemini, Claude, NotebookLM, Claude Code, Codex, and **GitHub Copilot**. Search, category filters, comparison, and task-based recommendations.
-- Seven practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks. An interactive project walkthrough shows files, planning, a diff, working search, and seven computed checks without calling an AI service.
+- Seven practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks.
 - Four interactive trainers: real `cl100k_base` tokenisation, an illustrative context budget, keyword versus manually positioned vector retrieval, and RAG using fictional documents and predefined answers.
 - Two image examples: **Mercedes / Monaco** with two reference slots and one result; **Oxford** with one reference slot and one result. Start by downloading references and recreating the target with your own prompt. The supplied prompts, token comparisons, analysis, and tips are collapsed until opened.
 - Shared templates, fully localised learning content and runtime messages, language switching on the same page, mobile layouts, and meaningful content available without JavaScript.
@@ -157,4 +157,4 @@ The seventh exercise uses `src/assets/materials/claude-code/`: `index.html`, `ap
 
 The starter deliberately leaves `filterTools` unfinished: `node verify.mjs` reports **2/7 and exit code 1**. Completing only that function should give **7/7 and exit code 0**. `node serve.mjs` serves the local preview on port 4173. No dependencies need installing in the downloaded project. The archive and both expected outcomes are exercised by repository tests; no live Claude Code service is invoked.
 
-The browser walkthrough uses the self-contained function in `src/assets/agent-model.js` and the same starting data. It computes its checks from actual results and labels them as browser-model checks, rather than terminal output.
+The workshop verifier is checked against a test-only reference implementation; no solution or agent simulation is included in the published site.

@@ -33,7 +33,6 @@
     <div class="footer-bottom"><span>{{ view.edition.title[view.lang] }} · {{ t.code }}</span><a href="https://github.com/valeriiakosharna-ops/ai-tools-for-everyday-routine" target="_blank" rel="noopener noreferrer">{{ t.source }} {{ arrow() }}</a></div>
   </div></footer>
   <script id="ui-data" type="application/json">{{ t | jsonScript | safe }}</script>
-  {% if view.section == 'practice' %}<script type="module" src="{{ 'assets/agent-demo.js' | url }}"></script>{% endif %}
   {% if view.section == 'simulators' %}<script id="lab-data" type="application/json">{{ view.lab | jsonScript | safe }}</script><script type="module" src="{{ 'assets/lab.js' | url }}"></script>{% endif %}
 </body>
 </html>
