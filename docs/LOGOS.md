@@ -9,11 +9,13 @@ Tool cards use recognisable product marks instead of placeholder letters or gene
 | Claude                        | `src/assets/tools/claude.svg`         | Lobe Icons `claude-color.svg`                             |
 | Claude Code                   | `src/assets/tools/claude-code.svg`    | Lobe Icons `claudecode-color.svg` (Clawd mark)            |
 | Codex                         | `src/assets/tools/codex.svg`          | Lobe Icons `codex.svg`                                    |
-| NotebookLM                    | `src/assets/tools/notebooklm.svg`     | Lobe Icons `notebooklm.svg`                               |
+| Gemini Notebook               | `src/assets/tools/notebooklm.svg`     | Lobe Icons `notebooklm.svg`                               |
 | GitHub Copilot                | `src/assets/tools/github-copilot.svg` | GitHub's Primer Octicons `copilot-24.svg`                 |
 | VS Code (practice setup link) | `src/assets/tools/vscode.png`         | Microsoft's VS Code repository `resources/linux/code.png` |
 
-The six Lobe Icons SVG files are community-maintained vector representations of the corresponding brand marks, rather than files published directly by each brand. They are vendored without editing paths, colours, or proportions. Direct brand-site downloads were unavailable under this environment's network policy; the product-reference URLs are recorded in the upstream icon documentation.
+The six Lobe Icons SVG files are community-maintained vector representations of the corresponding brand marks, rather than files published directly by each brand. They are vendored without editing paths, colours, or proportions; accessible titles follow the product labels used in this guide. Direct brand-site downloads were unavailable under this environment's network policy; the product-reference URLs are recorded in the upstream icon documentation.
+
+The Gemini Notebook display name uses the existing source-product mark. Its SVG geometry was checked against the current Lobe Icons revision [`8b7bbc433d38437fa2b0cca58ae896917162b812`](https://github.com/lobehub/lobe-icons/blob/8b7bbc433d38437fa2b0cca58ae896917162b812/packages/static-svg/icons/notebooklm.svg) on 26 October 2026 and is unchanged. Only its accessible title has been updated. Internal IDs, asset filenames, and working product/help URLs are retained.
 
 Pinned source revisions:
 

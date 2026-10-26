@@ -4,7 +4,7 @@ A reusable static mini-site in **Ukrainian and English**, adapted from [AI Tools
 
 ## What is included
 
-- Four approaches to AI and seven detailed tools: ChatGPT, Gemini, Claude, NotebookLM, Claude Code, Codex, and **GitHub Copilot**. Search, category filters, comparison, and task-based recommendations.
+- Four approaches to AI and seven detailed tools: ChatGPT, Gemini, Claude, Gemini Notebook, Claude Code, Codex, and **GitHub Copilot**. Search, category filters, comparison, and task-based recommendations.
 - Seven practical exercises with copyable prompts, downloadable documents, checklists, reflection questions, and locally saved completion marks.
 - Four interactive trainers: real `cl100k_base` tokenisation, an illustrative context budget, keyword versus manually positioned vector retrieval, and RAG using fictional documents and predefined answers.
 - Two image examples: **Mercedes / Monaco** with two reference slots and one result; **Oxford** with one reference slot and one result. Start by downloading references and recreating the target with your own prompt. The supplied prompts, token comparisons, analysis, and tips are collapsed until opened.

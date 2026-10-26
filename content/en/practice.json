@@ -100,7 +100,7 @@
     {
       "id": "sources",
       "number": "03",
-      "tool": "NotebookLM",
+      "tool": "Gemini Notebook",
       "icon": "book",
       "minutes": "7–10 min",
       "skill": "Check sources",
@@ -108,12 +108,12 @@
       "intro": "Compare a general AI conversation with work grounded in specific documents. Check conclusions against citations.",
       "tools": [
         {
-          "name": "NotebookLM",
+          "name": "Gemini Notebook",
           "url": "https://notebooklm.google.com/"
         }
       ],
       "steps": [
-        "Open NotebookLM and create a notebook.",
+        "Open Gemini Notebook and create a notebook.",
         "Add your own public materials or download both sample documents below and add them as sources. If TXT upload is unavailable, paste their contents as text.",
         "Send the prompt below and ask to use only the added sources.",
         "Open the citations and check that each passage actually supports the conclusion.",

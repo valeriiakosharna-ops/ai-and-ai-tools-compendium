@@ -1,5 +1,5 @@
 TRAINING SOURCE 2. EVENT UPDATE
-This is a fictional document for the NotebookLM exercise only.
+This is a fictional document for the Gemini Notebook exercise only.
 
 Apply these updates after the initial brief in source 1.
 
