@@ -2,11 +2,6 @@ import { readFileSync, existsSync } from "node:fs";
 import { encode } from "gpt-tokenizer/encoding/cl100k_base";
 import ui from "../../content/ui.js";
 import { validateEditions, selectItems } from "../../lib/editions.js";
-import { filterTools as finishedFilter } from "../assets/agent-model.js";
-import {
-  filterTools as starterFilter,
-  tools as demoTools,
-} from "../assets/materials/claude-code/app.mjs";
 
 const json = (path) =>
   JSON.parse(readFileSync(new URL(`../../${path}`, import.meta.url), "utf8"));
@@ -115,11 +110,6 @@ export default function () {
         exercises,
         examples,
         lab: json(`content/${lang}/lab.json`),
-        agentDemo: {
-          before: starterFilter.toString(),
-          after: finishedFilter.toString(),
-          tools: demoTools,
-        },
         switchRoot:
           standalone && language
             ? null

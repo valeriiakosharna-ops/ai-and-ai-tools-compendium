@@ -110,22 +110,6 @@ export default {
     copyFailed:
       "Автоматичне копіювання недоступне. Текст виділено — скопіюйте вручну.",
     openTool: "Відкрити",
-    agentTitle: "Дослідіть роботу агента",
-    agentIntro:
-      "Пройдіть шлях від файлів до працюючого пошуку: розгляньте початкову функцію, план і diff, застосуйте зміну та перевірте її поведінку.",
-    before: "До зміни",
-    after: "Після зміни",
-    apply: "Застосувати зміну",
-    validate: "Перевірити",
-    agentChecks: [
-      "Порожній запит показує все",
-      "Пошук Gemini знаходить одну картку",
-      "Регістр не впливає на результат",
-      "Зайві пробіли ігноруються",
-      "Пошук працює за описом",
-      "Невідомий запит не дає збігів",
-      "Початкові дані не змінюються",
-    ],
     labHero: "Зрозумійте, що за відповіддю.",
     labIntro:
       "Чотири механізми без магії. Змінюйте параметри й спостерігайте за результатом.",
@@ -284,55 +268,6 @@ export default {
     practiceCtaText:
       "Перейдіть від знайомства з інструментами до вправ із готовими матеріалами й перевіркою результату.",
     goToPractice: "Перейти до практики",
-    agentDemoNotice:
-      "Це інтерактивна навчальна модель тієї самої задачі, що у вправі Claude Code. ШІ тут не підключається: демонстрація виконує готову функцію у браузері. Реальні файли й команду node verify.mjs перевірте у власному проєкті.",
-    agentStages: [
-      "Дослідити",
-      "Спланувати",
-      "Переглянути diff",
-      "Спробувати",
-      "Перевірити",
-    ],
-    agentStageIntro: [
-      "Пошук уже має поле та картки. Знайдіть функцію filterTools в app.mjs: зараз вона повертає всі інструменти для будь-якого запиту.",
-      "Перед редагуванням визначте, що має змінитися та як ви це перевірите.",
-      "Зіставте початкову й готову функції. Зміна додає нормалізацію запиту та фільтрацію за назвою або описом.",
-      "Введіть Gemini: до застосування зміни залишаться всі картки. Натисніть «Застосувати зміну» та повторіть пошук. Спробуйте також reasoning і запит без збігів.",
-      "Запустіть перевірку до й після зміни. Кожен пункт нижче обчислюється з фактичного результату навчальної функції; це не вивід термінала.",
-    ],
-    agentFiles: [
-      {
-        name: "index.html",
-        description: "Поле пошуку та чотири картки",
-      },
-      {
-        name: "app.mjs",
-        description: "Функція фільтрації та взаємодія",
-      },
-      {
-        name: "verify.mjs",
-        description: "Сім умов для перевірки",
-      },
-      {
-        name: "serve.mjs",
-        description: "Локальний перегляд сторінки",
-      },
-    ],
-    agentPlan: [
-      "Шукати за частиною назви або опису.",
-      "Ігнорувати регістр і пробіли на початку та в кінці.",
-      "Для порожнього запиту показувати все, для відсутнього збігу — повідомлення.",
-      "Зберегти початкові дані та пройти всі сім перевірок.",
-    ],
-    agentQuery: "Перевірте пошук у прикладі",
-    agentNoMatches: "Інструментів не знайдено.",
-    agentOriginal: "Початковий стан: функція повертає всі чотири картки.",
-    agentApplied:
-      "Зміну застосовано до навчальної моделі. Пошук тепер фільтрує картки; запустіть перевірки.",
-    agentNotChecked: "Перевірки ще не запускалися.",
-    agentDownload: "Завантажити проєкт",
-    agentNoJs:
-      "Перегляньте функції до й після зміни. Для інтерактивного проходження потрібен JavaScript; завдання Claude Code і завантаження проєкту доступні без нього.",
   },
   en: {
     code: "EN",
@@ -444,22 +379,6 @@ export default {
     copyFailed:
       "Automatic copying is unavailable. The text is selected; copy it manually.",
     openTool: "Open",
-    agentTitle: "Explore how an agent works",
-    agentIntro:
-      "Follow the journey from files to working search: inspect the starting function, plan and diff, apply the change, and verify its behaviour.",
-    before: "Before",
-    after: "After",
-    apply: "Apply change",
-    validate: "Run checks",
-    agentChecks: [
-      "Empty query returns everything",
-      "Gemini matches one card",
-      "Search ignores case",
-      "Extra whitespace is ignored",
-      "Descriptions are searchable",
-      "Unknown queries return no matches",
-      "Source data stays unchanged",
-    ],
     labHero: "Understand what is behind the answer.",
     labIntro:
       "Four mechanisms, no magic. Change the inputs and observe the results.",
@@ -611,48 +530,5 @@ export default {
     practiceCtaText:
       "Move from exploring tools to practical exercises with ready-made materials and checks.",
     goToPractice: "Go to practice",
-    agentDemoNotice:
-      "This is an interactive teaching model of the Claude Code exercise. No AI service is connected: a supplied function runs in your browser. Check the real project files with node verify.mjs in your own environment.",
-    agentStages: ["Inspect", "Plan", "Review diff", "Try it", "Check"],
-    agentStageIntro: [
-      "The search field and cards are already in place. Find filterTools in app.mjs: it currently returns every tool for every query.",
-      "Before editing, define what should change and how you will check it.",
-      "Compare the starting and finished functions. The change normalises the query and filters by name or description.",
-      "Enter Gemini: before applying the change, all cards remain. Apply the change and search again. Also try reasoning and a query with no matches.",
-      "Run checks before and after the change. Every outcome below is computed from the teaching function’s actual results; this is not terminal output.",
-    ],
-    agentFiles: [
-      {
-        name: "index.html",
-        description: "Search field and four cards",
-      },
-      {
-        name: "app.mjs",
-        description: "Filtering and interaction",
-      },
-      {
-        name: "verify.mjs",
-        description: "Seven checks",
-      },
-      {
-        name: "serve.mjs",
-        description: "Local page preview",
-      },
-    ],
-    agentPlan: [
-      "Match a part of the name or description.",
-      "Ignore case and leading or trailing whitespace.",
-      "Show all tools for an empty query and an empty state for no matches.",
-      "Preserve the source data and pass all seven checks.",
-    ],
-    agentQuery: "Try the example search",
-    agentNoMatches: "No tools found.",
-    agentOriginal: "Starting state: the function returns all four cards.",
-    agentApplied:
-      "The teaching model now uses the changed function. Search filters the cards; run the checks next.",
-    agentNotChecked: "Checks have not run yet.",
-    agentDownload: "Download project",
-    agentNoJs:
-      "Compare the before and after functions. JavaScript is required for the interactive walkthrough; the Claude Code task and project download remain available without it.",
   },
 };

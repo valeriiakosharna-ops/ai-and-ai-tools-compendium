@@ -11,7 +11,7 @@ import {
 } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import os from "node:os";
-import { filterTools as finishedFilter } from "../src/assets/agent-model.js";
+import { filterTools as finishedFilter } from "../test/fixtures/claude-search-solution.mjs";
 import { filterTools as starterFilter } from "../src/assets/materials/claude-code/app.mjs";
 import { existsSync } from "node:fs";
 import path from "node:path";
@@ -215,33 +215,8 @@ try {
     assert.equal(archive.status(), 200);
     assert.equal((await archive.body()).subarray(0, 2).toString(), "PK");
     checks++;
-    await page.locator("#agent-validate").click();
-    assert.equal(
-      await page.locator('#agent-checks [data-passed="true"]').count(),
-      2,
-    );
-    await page.locator("#agent-apply").click();
-    assert.equal(await page.locator("#agent-result-cards article").count(), 1);
-    await page.locator("#agent-search").fill("xyz-not-found");
-    assert.equal(await page.locator("#agent-empty").isVisible(), true);
-    await page.locator("#agent-search").fill("");
-    assert.equal(await page.locator("#agent-result-cards article").count(), 4);
-    assert.ok(
-      await page.locator("#agent-preview").evaluate((container) => {
-        const last = container.querySelector(
-          "#agent-result-cards article:last-child",
-        );
-        return (
-          last.getBoundingClientRect().bottom <=
-          container.getBoundingClientRect().bottom
-        );
-      }),
-    );
-    await page.locator("#agent-validate").click();
-    assert.equal(
-      await page.locator('#agent-checks [data-passed="true"]').count(),
-      7,
-    );
+    assert.equal(await page.locator("#agent-demo").count(), 0);
+    assert.equal(await page.locator('a[href="#agent-demo"]').count(), 0);
     checks += 3;
     await page.goto(`${base}${lang}/simulators/`);
     await page.locator("#token-input").fill("Hello, world!");
@@ -467,29 +442,6 @@ try {
     path: path.join(screenshots, "images-desktop.png"),
     fullPage: true,
   });
-  await capture.goto(`${base}uk/practice/#agent-demo`);
-  await capture.locator('[data-agent-stage="2"]').click();
-  await capture
-    .locator("#agent-demo")
-    .screenshot({
-      path: path.join(screenshots, "agent-diff-desktop.png"),
-      style: ".site-header,.skip{visibility:hidden!important}",
-    });
-  await capture.locator("#agent-apply").click();
-  await capture
-    .locator("#agent-demo")
-    .screenshot({
-      path: path.join(screenshots, "agent-preview-desktop.png"),
-      style: ".site-header,.skip{visibility:hidden!important}",
-    });
-  await capture.setViewportSize({ width: 375, height: 900 });
-  await capture.locator("#agent-validate").click();
-  await capture
-    .locator("#agent-demo")
-    .screenshot({
-      path: path.join(screenshots, "agent-mobile.png"),
-      style: ".site-header,.skip{visibility:hidden!important}",
-    });
   await capture.setViewportSize({ width: 375, height: 850 });
   await capture.goto(`${base}uk/`);
   await capture.screenshot({

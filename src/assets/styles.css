@@ -1145,12 +1145,6 @@ table a {
 .exercise[data-completed="true"] {
   border-bottom: 2px solid var(--deep-blue);
 }
-.agent-demo {
-  padding-bottom: 50px;
-}
-.agent-demo h2 {
-  font-size: 32px;
-}
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1168,21 +1162,12 @@ table a {
 .demo-grid h3 {
   font-size: 16px;
 }
-.demo-controls,
 .action-row {
   display: flex;
   flex-wrap: wrap;
   gap: 13px;
   align-items: center;
   margin-block: 22px;
-}
-#agent-preview {
-  width: 100%;
-  height: auto;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: #fff;
 }
 .image-content {
   max-width: 1120px;
@@ -2457,179 +2442,11 @@ figure {
   background: var(--accent-soft);
   border-radius: 8px;
 }
-.agent-pipeline {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
-  padding: 0;
-  list-style: none;
-  margin-block: 26px;
-}
-.agent-pipeline li {
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-}
-.agent-pipeline button {
-  width: 100%;
-  height: 100%;
-  padding: 12px 6px;
-  background: var(--white);
-  font-size: 11px;
-  line-height: 1.4;
-}
-.agent-pipeline button span {
-  display: block;
-  color: var(--deep-blue);
-  font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-.agent-pipeline button[aria-pressed="true"] {
-  background: var(--accent-soft);
-  border-color: var(--deep-blue);
-}
-.agent-workspace {
-  display: grid;
-  grid-template-columns: 170px minmax(0, 1fr);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--white);
-}
-.agent-file-tree {
-  background: var(--ink);
-  color: var(--white);
-  padding: 22px 16px;
-  min-width: 0;
-}
-.agent-file-tree > div {
-  padding-block: 13px;
-  border-bottom: 1px solid color-mix(in srgb, var(--white) 20%, transparent);
-}
-.agent-file-tree code {
-  font-size: 13px;
-  color: var(--sky);
-}
-.agent-file-tree small {
-  display: block;
-  font-size: 11px;
-  color: var(--white);
-  line-height: 1.5;
-}
-.agent-file-tree > a {
-  display: inline-block;
-  color: var(--white);
-  font-size: 11px;
-  margin-top: 25px;
-  border-color: var(--sky);
-}
-.agent-screen {
-  padding: 24px;
-  min-width: 0;
-}
-.agent-screen-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-.agent-screen h3 {
-  margin-top: 0;
-  font-size: 23px;
-}
-.agent-screen p {
-  font-size: 13px;
-}
-.agent-screen pre {
-  padding: 16px;
-  background: var(--accent-soft);
-  border-radius: 10px;
-  font-size: 12px;
-}
-.agent-diff pre {
-  background: var(--paper);
-}
-.agent-diff .diff-removed {
-  color: var(--berry);
-  background: var(--warm-soft);
-  margin: 15px 0 0;
-  padding: 8px;
-}
-.agent-diff .diff-added {
-  color: var(--deep-blue);
-  background: var(--accent-soft);
-  margin: 15px 0 0;
-  padding: 8px;
-}
-.agent-live-preview input {
-  width: 100%;
-  margin-top: 8px;
-}
-.agent-live-preview label {
-  font-size: 13px;
-  font-weight: 650;
-}
-#agent-result-cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-#agent-result-cards article {
-  padding: 16px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--paper);
-}
-#agent-result-cards article strong {
-  font-size: 15px;
-}
-#agent-result-cards article p {
-  margin: 8px 0 0;
-  font-size: 12px;
-}
-.agent-screen .agent-check-score {
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--deep-blue);
-  margin: 0;
-}
-.agent-screen .check-list li::before {
-  content: none;
-}
-.agent-screen .check-list li {
-  padding-left: 0;
-}
-#agent-demo-status {
-  font-size: 13px;
-  color: var(--muted);
-}
 @media (max-width: 700px) {
   .practice-cta {
     flex-direction: column;
     align-items: flex-start;
     padding: 25px;
-  }
-  .agent-workspace {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .agent-file-tree {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-  .agent-file-tree > p,
-  .agent-file-tree > a {
-    grid-column: 1 / -1;
-    margin: 0;
-  }
-  .agent-screen {
-    padding: 18px;
-  }
-  .agent-pipeline button {
-    font-size: 9px;
-    padding-inline: 3px;
   }
 }
 .image-task {
