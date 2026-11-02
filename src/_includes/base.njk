@@ -30,6 +30,7 @@
   </main>
   <footer class="site-footer"><div class="container">
     <div class="footer-top"><a class="footer-logo" href="{{ view.root | url }}"><img class="brand-logo" src="{{ 'assets/logo.svg' | url }}" width="65" height="36" alt="NIX"><span>AI FIELD GUIDE</span></a><p>{{ t.footer }}</p><a href="#main">{{ t.top }}</a></div>
+    {% if view.lang == 'uk' %}{% include "contacts.njk" %}{% endif %}
     <div class="footer-bottom"><span>{{ view.edition.title[view.lang] }} · {{ t.code }}</span><a href="https://github.com/valeriiakosharna-ops/ai-tools-for-everyday-routine" target="_blank" rel="noopener noreferrer">{{ t.source }} {{ arrow() }}</a></div>
   </div></footer>
   <script id="ui-data" type="application/json">{{ t | jsonScript | safe }}</script>
